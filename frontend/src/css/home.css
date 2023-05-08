@@ -1,0 +1,152 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 4%;
+    margin-top: 4%;
+}
+.one-three{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 3rem;    
+    margin-bottom: 6rem;
+}
+.four-five{
+    display: flex;
+    position: relative;
+    gap: 3rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.one{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    width: 30%;
+    height: 280px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.one::after,
+.two::after,
+.three::after,
+.four::after,
+.five::after{
+    content: "";
+    padding: 1rem;
+    position: relative;
+    background-color: aquamarine;
+    width: 100%;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.one::after{
+    content: "Tickets by Priority";
+}
+.two::after{
+    content: "Tickets by Device Type";
+}
+.three::after{
+    content: "Tickets by Status";
+}
+.four::after{
+    content: "Amount of Tickets Over Time";
+}
+.five::after{
+    content: "Tickets Completed Each Quarter";
+}
+
+.two{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: magenta;
+    width: 30%;
+    height: 280px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.three{
+    display: flex;
+    flex-direction: column;
+    background-color: violet;
+    position: relative;
+    width: 30%;
+    height: 280px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.four{
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    position: relative;
+    width: 63%;
+    height: 280px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.five{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: brown;
+    width: 30%;
+    height: 280px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+    transition: width 200ms ease-in-out;
+}
+
+canvas{
+    width: 100%!important;
+    transition: width 300ms ease-in-out;
+}
+
+
+
+@media only screen and (max-width: 1300px){
+    .one-three,
+    .four-five{
+        gap: 0;
+    }
+    .one,
+    .two,
+    .three,
+    .five{
+        min-width: 45%;
+    }
+    .two{
+        margin-left: 3rem;
+    }
+    .three{
+        margin-top: 6rem;
+    }
+    .four{
+        min-width: 80%;
+        margin-bottom: 6rem;
+    }
+}
+
+@media only screen and (max-width: 780px){
+    .one-three,
+    .four-five{
+        margin: 0;
+        justify-content: center;
+    }
+    .one,
+    .two,
+    .three,
+    .five{
+        width: 80%;
+        margin: 0;
+        margin-bottom: 6rem;
+    }
+
+
+}
