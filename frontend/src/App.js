@@ -1,13 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import Home from './pages/Home';
-import Team from './pages/Team';
-import Work from './pages/Work';
-import Unassigned from './pages/Unassigned';
-import Assigned from './pages/Assigned';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Sidebar from './components/Sidebar'
+import Header from './components/Header'
+import Home from './pages/Home'
+import Team from './pages/Team'
+import Work from './pages/Work'
+import Unassigned from './pages/Unassigned'
+import Assigned from './pages/Assigned'
+import './css/app.css'
 
-import './css/app.css';
+
 
 function App(props) {
   return (
