@@ -8,6 +8,9 @@ import lineChartData from './data/lineChartData';
 import horizontalBarChartData from './data/horizontalBarChartData';
 import doughnutChartData from './data/bar2ChartData';
 import bar2ChartData from './data/bar2ChartData';
+import RequireAuth from '../components/RequireAuth';
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
 
 Chart.register(
   BarElement,
@@ -49,11 +52,10 @@ const horizontalBarOptions = horizontalBarChartData.options;
 const bar2Data = bar2ChartData.data;
 const bar2Options = bar2ChartData.options;
 
-
 console.log(lineOptions);
 
 function Home() {
-
+  RequireAuth()
   return (
     <div className='home'>
         <div className='one-three'>
@@ -76,8 +78,8 @@ function Home() {
               <Bar data={horizontalBarData} options={horizontalBarOptions}/>
             </div>
         </div>
-    </div>
-  )
+    </div>  
+    )
 }
 
 export default Home

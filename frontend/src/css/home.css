@@ -2,8 +2,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-left: 4%;
-    margin-top: 4%;
+    padding-left: 4%;
+    padding-top: 4%;
+    background-color: #fafafa;
+    z-index: -1;
+    color: black;
+    --card-background: rgba(107, 107, 107, 0.229);
 }
 .one-three{
     display: flex;
@@ -24,10 +28,12 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    background-color: blanchedalmond;
+    padding: 10px;
     width: 30%;
     height: 280px;
+    border-radius: 10px 10px 0 0;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--background-color);
 }
 
 
@@ -39,11 +45,12 @@
     content: "";
     padding: 1rem;
     position: relative;
-    background-color: aquamarine;
-    width: 100%;
+    translate: -10px;
+    width: calc(100% + 20px);
     text-align: center;
+    font-size: larger;
     border-radius: 0 0 10px 10px;
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+    background-color: white;
 }
 .one::after{
     content: "Tickets by Priority";
@@ -65,42 +72,50 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: magenta;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
     width: 30%;
     height: 280px;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--background-color);
 }
 
 
 .three{
     display: flex;
     flex-direction: column;
-    background-color: violet;
     position: relative;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
     width: 30%;
     height: 280px;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--background-color);
 }
 
 .four{
     display: flex;
     flex-direction: column;
-    background-color: green;
     position: relative;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
     width: 63%;
     height: 280px;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--background-color);
 }
 
 .five{
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: brown;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
     width: 30%;
     height: 280px;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
     transition: width 200ms ease-in-out;
+    background-color: var(--background-color);
 }
 
 canvas{

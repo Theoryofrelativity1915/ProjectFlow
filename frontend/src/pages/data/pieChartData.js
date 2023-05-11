@@ -1,3 +1,5 @@
+import { green, pink, purple, lightPurple, red, lightRed, gold, lightGold, blue, teal, lightTeal } from './colors'
+
 const pieChartData ={
     data: {
         labels: [
@@ -9,9 +11,9 @@ const pieChartData ={
             data: [300, 50, 100],
             borderColor: 'white',
             backgroundColor: [
-                'red',
-                'green',
-                'blue',
+                purple,
+                green,
+                gold,
             ],
                 hoverOffset: 4
             }

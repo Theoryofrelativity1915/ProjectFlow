@@ -1,3 +1,5 @@
+import { green, pink, purple, lightPurple, red, lightRed, gold, lightGold, blue, teal, lightTeal } from './colors'
+
 const bar2ChartData = {
     
     data : { 
@@ -6,7 +8,7 @@ const bar2ChartData = {
       {
         display: false, 
         data: [3, 5, 7, 2],
-        backgroundColor: 'aqua',
+        backgroundColor: [green, purple, blue, pink],
         borderColor: 'black',
         borderWidth: 1,
       }
