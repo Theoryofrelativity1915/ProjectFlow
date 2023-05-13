@@ -12,17 +12,17 @@ import './css/app.css'
 
 function App() {
   return (
-          <Routes>
-          {/* Private Routes */}
-          <Route path='' element={<RequireAuth/>}>
-            <Route path="/" element={<Layout><Home/></Layout>}/>
-            <Route path='work' element={<Layout><Work/></Layout>}/>
-            <Route path='assigned' element={<Layout><Assigned/></Layout>}/>
-            <Route path='unassigned' element={<Layout><Unassigned/></Layout>}/>
-            <Route path='team' element={<Layout><Team/></Layout>}/>
-            <Route path='*' element={<Layout><Error/></Layout>}/>
-          </Route>
-        </Routes>
+    <Routes>
+      {/* Private Routes */}
+      <Route path='' element={<RequireAuth/>}>
+        <Route path="/" element={<Layout><Home/></Layout>}/>
+        <Route path='work' element={<Layout><Work/></Layout>}/>
+        <Route path='assigned' element={<Layout><Assigned/></Layout>}/>
+        <Route path='unassigned' element={<Layout><Unassigned/></Layout>}/>
+        <Route path='team' element={<Layout><Team/></Layout>}/>
+        <Route path='*' element={<Layout><Error/></Layout>}/>
+      </Route>
+    </Routes>
   );
 }
 
