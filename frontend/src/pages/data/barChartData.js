@@ -16,7 +16,6 @@ const barChartData = {
 },
 
 options : {
-    responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: {

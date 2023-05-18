@@ -1,7 +1,7 @@
 .navigation-bar{
     display: flex;
     justify-content: space-between;
-    height: 4rem;
+    height: 3rem;
     align-items: center;
     box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.2);
     background-color: var(--background-color);

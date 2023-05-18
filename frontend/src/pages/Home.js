@@ -56,22 +56,36 @@ function Home() {
     <div className='home'>
       <div className='one-three'>
         <div className='one'>
-          <Bar data={bar1Data} options={bar1Options}/>
+          <div className='chart' id='one3.0'>
+            <Bar data={bar1Data} options={bar1Options}/>
+          </div>
           <section>Tickets by Priority</section>
         </div>
         <div className='two'>
-          <Pie data={pieData} options={pieOptions}/>
+          <div className='chart' id='two'>
+            <Pie data={pieData} options={pieOptions}/>
+          </div>
+          <section>Tickets by Device Type</section>
         </div>
         <div className='three'>
-          <Bar data={bar2Data} options={bar2Options} className='bar'/>
+          <div className='chart' id='three'>
+            <Bar data={bar2Data} options={bar2Options} className='bar'/>
+          </div>
+          <section>Tickets by Status</section>
         </div>
       </div>
       <div className='four-five'>
         <div className='four'>
-          <Line data={lineData} options={lineOptions}/>
+          <div className='chart' id='four'>
+            <Line data={lineData} options={lineOptions}/>
+          </div>
+          <section>Amount of Tickets Over Time</section>
         </div>
         <div className='five'>
-          <Bar data={horizontalBarData} options={horizontalBarOptions}/>
+          <div className='chart' id='five'>
+            <Bar data={horizontalBarData} options={horizontalBarOptions}/>
+          </div>
+          <section>Tickets Completed Each Quarter</section>
         </div>
       </div>
     </div>  

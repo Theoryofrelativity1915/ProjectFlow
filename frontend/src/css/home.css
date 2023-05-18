@@ -2,19 +2,21 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-left: 4%;
-    padding-top: 4%;
+    padding: 4%;
+    height: 100%;
+    overflow: hidden;
     background-color: #fafafa;
     z-index: -1;
     color: black;
     --card-background: rgba(107, 107, 107, 0.229);
 }
 .one-three{
+    height: 45%;
     display: flex;
     flex-wrap: wrap;
     position: relative;
     gap: 3rem;    
-    margin-bottom: 6rem;
+    margin-bottom: 3rem;
 }
 .four-five{
     display: flex;
@@ -24,18 +26,28 @@
     align-items: center;
 }
 
-.one{
+.one,
+.two,
+.three,
+.five{
     display: flex;
     position: relative;
     flex-direction: column;
-    padding: 10px;
     width: 30%;
-    height: 280px;
+    height: 100%;
     border-radius: 10px 10px 0 0;
-    box-shadow: 2px calc(5px + 3rem) 5px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 2px calc(5px + 3rem) 5px rgba(0, 0, 0, 0.3); */
     background-color: var(--background-color);
     align-items: center;
+    overflow: hidden;
 }
+
+.chart{
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px 0 10px;
+}
+
 
 section{
     display: flex;
@@ -44,12 +56,12 @@ section{
     width: calc(100% + 20px);
     font-size: larger;
     padding: 1rem;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 
 /* .one::after, */
-.two::after,
+/* .two::after,
 .three::after,
 .four::after,
 .five::after{
@@ -62,11 +74,11 @@ section{
     font-size: larger;
     border-radius: 0 0 10px 10px;
     background-color: white;
-}
+} */
 /* .one::after{
     content: "Tickets by Priority";
 } */
-.two::after{
+/* .two::after{
     content: "Tickets by Device Type";
 }
 .three::after{
@@ -77,16 +89,16 @@ section{
 }
 .five::after{
     content: "Tickets Completed Each Quarter";
-}
+} */
 
-.two{
+/* .two{
     display: flex;
     flex-direction: column;
     position: relative;
     border-radius: 10px 10px 0 0;
     padding: 10px;
     width: 30%;
-    height: 280px;
+    height: 240px;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
     background-color: var(--background-color);
 }
@@ -99,10 +111,10 @@ section{
     border-radius: 10px 10px 0 0;
     padding: 10px;
     width: 30%;
-    height: 280px;
+    height: 240px;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
     background-color: var(--background-color);
-}
+} */
 
 .four{
     display: flex;
@@ -111,7 +123,7 @@ section{
     border-radius: 10px 10px 0 0;
     padding: 10px;
     width: 63%;
-    height: 280px;
+    height: 240px;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
     background-color: var(--background-color);
 }
@@ -123,7 +135,7 @@ section{
     border-radius: 10px 10px 0 0;
     padding: 10px;
     width: 30%;
-    height: 280px;
+    height: 240px;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
     transition: width 200ms ease-in-out;
     background-color: var(--background-color);
