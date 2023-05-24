@@ -56,19 +56,19 @@ function Home() {
     <div className='home'>
       <div className='one-three'>
         <div className='one'>
-          <div className='chart' id='one3.0'>
+          <div className='chart'>
             <Bar data={bar1Data} options={bar1Options}/>
           </div>
           <section>Tickets by Priority</section>
         </div>
         <div className='two'>
-          <div className='chart' id='two'>
+          <div className='chart'>
             <Pie data={pieData} options={pieOptions}/>
           </div>
           <section>Tickets by Device Type</section>
         </div>
         <div className='three'>
-          <div className='chart' id='three'>
+          <div className='chart'>
             <Bar data={bar2Data} options={bar2Options} className='bar'/>
           </div>
           <section>Tickets by Status</section>
@@ -76,13 +76,13 @@ function Home() {
       </div>
       <div className='four-five'>
         <div className='four'>
-          <div className='chart' id='four'>
+          <div className='chart'>
             <Line data={lineData} options={lineOptions}/>
           </div>
           <section>Amount of Tickets Over Time</section>
         </div>
         <div className='five'>
-          <div className='chart' id='five'>
+          <div className='chart'>
             <Bar data={horizontalBarData} options={horizontalBarOptions}/>
           </div>
           <section>Tickets Completed Each Quarter</section>

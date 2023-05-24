@@ -1,29 +1,31 @@
 .home{
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 4%;
+    width: 100%;
     height: 100%;
-    overflow: hidden;
     background-color: #fafafa;
-    z-index: -1;
-    color: black;
-    --card-background: rgba(107, 107, 107, 0.229);
 }
+
 .one-three{
+    display: flex;
+    flex-direction: row;
     height: 45%;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    gap: 3rem;    
-    margin-bottom: 3rem;
-}
-.four-five{
-    display: flex;
-    position: relative;
     gap: 3rem;
     flex-wrap: wrap;
     align-items: center;
+    position: relative;
+}
+
+.four-five{
+    display: flex;
+    height: 45%;
+    margin-top: 3rem;
+    gap: 3rem;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    flex: 1;
 }
 
 .one,
@@ -31,124 +33,49 @@
 .three,
 .five{
     display: flex;
-    position: relative;
     flex-direction: column;
+    position: relative;
     width: 30%;
     height: 100%;
-    border-radius: 10px 10px 0 0;
-    /* box-shadow: 2px calc(5px + 3rem) 5px rgba(0, 0, 0, 0.3); */
-    background-color: var(--background-color);
-    align-items: center;
     overflow: hidden;
+    border-radius: 0 0 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+}
+
+.four{
+    position: relative;
+    width: 63.25%;
+    height: 100%;
+    border-radius: 0 0 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .chart{
-    width: 100%;
-    height: 100%;
-    padding: 10px 10px 0 10px;
-}
-
-
-section{
-    display: flex;
-    justify-content: center;
-    background-color: red;
-    width: calc(100% + 20px);
-    font-size: larger;
-    padding: 1rem;
-    border-radius: 10px 10px 0 0;
-}
-
-
-/* .one::after, */
-/* .two::after,
-.three::after,
-.four::after,
-.five::after{
-    content: "";
-    padding: 1rem;
-    position: relative;
-    translate: -10px;
-    width: calc(100% + 20px);
-    text-align: center;
-    font-size: larger;
-    border-radius: 0 0 10px 10px;
-    background-color: white;
-} */
-/* .one::after{
-    content: "Tickets by Priority";
-} */
-/* .two::after{
-    content: "Tickets by Device Type";
-}
-.three::after{
-    content: "Tickets by Status";
-}
-.four::after{
-    content: "Amount of Tickets Over Time";
-}
-.five::after{
-    content: "Tickets Completed Each Quarter";
-} */
-
-/* .two{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border-radius: 10px 10px 0 0;
-    padding: 10px;
-    width: 30%;
-    height: 240px;
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
-    background-color: var(--background-color);
-}
-
-
-.three{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border-radius: 10px 10px 0 0;
-    padding: 10px;
-    width: 30%;
-    height: 240px;
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
-    background-color: var(--background-color);
-} */
-
-.four{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border-radius: 10px 10px 0 0;
-    padding: 10px;
-    width: 63%;
-    height: 240px;
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
-    background-color: var(--background-color);
-}
-
-.five{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border-radius: 10px 10px 0 0;
-    padding: 10px;
-    width: 30%;
-    height: 240px;
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
-    transition: width 200ms ease-in-out;
-    background-color: var(--background-color);
-}
-
-canvas{
+    height: 85%;
     width: 100%!important;
     transition: width 300ms ease-in-out;
 }
 
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border-radius: 0 0 10px 10px;
+    height: 15%;
+}
+
+.five{
+    transition: width 200ms ease-in-out;
+    background-color: var(--background-color);
+}
 
 
 @media only screen and (max-width: 1300px){
+    .home{
+        height: fit-content;
+    }
     .one-three,
     .four-five{
         gap: 0;
@@ -157,17 +84,23 @@ canvas{
     .two,
     .three,
     .five{
+        height: 280px;
         min-width: 45%;
     }
     .two{
         margin-left: 3rem;
     }
-    .three{
-        margin-top: 6rem;
+    .three,
+    .five{
+        margin-top: 3rem;
     }
     .four{
-        min-width: 80%;
-        margin-bottom: 6rem;
+        width: 80%;
+        height: 280px;
+    }
+    .five{
+        height: 280px;
+
     }
 }
 
@@ -180,11 +113,16 @@ canvas{
     .one,
     .two,
     .three,
+    .four,
     .five{
+        height: 280px;
         width: 80%;
         margin: 0;
-        margin-bottom: 6rem;
+        margin-bottom: 3rem;
     }
-
+    .four,
+    .five{
+        font-size: 0.75rem;
+    }
 
 }

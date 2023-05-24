@@ -6,7 +6,7 @@
 .main{
     display: flex;
     position: relative;
-    height: calc(100% - 3rem);
+    height: calc(100% - 4rem);
     width: 100%;
 }
 
