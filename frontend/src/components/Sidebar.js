@@ -35,29 +35,29 @@ function Sidebar(props) {
                 <span>Home</span>    
               </div>
             </NavLink>
-            <NavLink to='/work' className='link' activeclassName='active'>
+            <NavLink to='/projects' className='link' activeclassName='active'>
               <div className='container'>
                 <WorkIcon className='icon'/>
-                <span>Work Orders</span>
+                <span>Projects</span>
               </div>
             </NavLink>
-            <NavLink to='/assigned' className='link' activeclassName='active'>
-              <div className='container'>
-                <PeopleIcon className='icon'/>
-                <span>Assigned Tasks</span>
-              </div>
-            </NavLink>
-            <NavLink to='/unassigned' className='link' activeclassName='active'>
+
+            <NavLink to='/tickets' className='link' activeclassName='active'>
               <div className='container'>
                 <ConstructionIcon className='icon'/>
-                <span>Unassigned Tasks</span>
+                <span>Tickets</span>
               </div>
             </NavLink>
-            {/* Instead of list items i could put the icons inside a navlink and style those depending on which one is active? */}
-            <NavLink to='/team' className='link' activeclassName='active'>
+            <NavLink to='/assign' className='link' activeclassName='active'>
               <div className='container'>
                 <PeopleIcon className='icon'/>
-                <span>Team Members</span>
+                <span>Assign Projects</span>
+              </div>
+            </NavLink>
+            <NavLink to='/admin' className='link' activeclassName='active'>
+              <div className='container'>
+                <PeopleIcon className='icon'/>
+                <span>Manage Roles</span>
               </div>
             </NavLink>
             <li>

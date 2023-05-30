@@ -1,0 +1,81 @@
+.projects{
+    background-color: blue;
+    width: 100%;
+    height: calc(100% - 6rem);
+    position: relative;
+    margin: 3rem;
+    box-sizing: content-box;
+}
+
+.header{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 30%;
+    background-color: red;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.title{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: -5%;
+    height: 30%;
+    width: 95%;
+    background-color: brown;
+}
+
+.title span{
+    padding-left: 1rem;
+}
+
+.header-information{
+    width: 100%;
+    display: flex;
+    background-color: bisque;
+    height: 70%;
+}
+
+.header-information div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section{
+    justify-content: flex-start;
+    padding-left: 2rem;
+}
+
+.information-container{
+    display: flex;
+    height: 70%;
+}
+
+.information{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    background-color: blueviolet;
+    justify-content: center;
+}
+
+.information-header{
+    margin-top: 1rem;
+    background-color: red;
+    height: 4rem;
+    width: 90%;
+}
+
+h3,
+p{
+    padding: 0 0 0 1rem;
+    margin: 0;
+}
+
+p{
+    padding-left: 2rem;
+}
