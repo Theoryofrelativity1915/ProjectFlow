@@ -65,3 +65,17 @@ h1{
         padding-right: 10px;
     }
 }
+
+/*****************************************/
+.icon{
+    cursor: pointer;
+}
+
+/* .drop-down{
+    background-color: green;
+    position: absolute;
+    height: 200px;
+    width: 100px;
+    bottom: 0;
+} */
+

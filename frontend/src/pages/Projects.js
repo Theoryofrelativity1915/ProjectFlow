@@ -22,13 +22,13 @@ function Projects() {
         </div>
       </div>
       <div className='information-container'>
-        <div className='information'>
+        <div className='information' id='one'>
           <div className='information-header'>
             <h3>Assigned Personnel</h3>
             <p>Current Users on this Project</p>
           </div>
         </div>
-        <div className='information'>
+        <div className='information' id='two'>
           <div className='information-header'>
             <h3>Assigned Personnel</h3>
             <p>Current Users on this Project</p>

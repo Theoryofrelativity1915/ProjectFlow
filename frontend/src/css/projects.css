@@ -25,6 +25,7 @@
     height: 30%;
     width: 95%;
     background-color: brown;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .title span{
@@ -53,6 +54,7 @@ section{
 .information-container{
     display: flex;
     height: 70%;
+    border-top: 1px solid black;
 }
 
 .information{
@@ -68,6 +70,7 @@ section{
     background-color: red;
     height: 4rem;
     width: 90%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 h3,
@@ -78,4 +81,14 @@ p{
 
 p{
     padding-left: 2rem;
+}
+
+
+#one{
+    width: 40%;
+    border-right: 1px solid black;
+}
+
+#two{
+    width: 60%;
 }

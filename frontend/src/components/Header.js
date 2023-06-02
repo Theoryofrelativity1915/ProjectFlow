@@ -17,10 +17,12 @@ function Header() {
                 <SearchIcon className='icon' sx={{width: '1.5rem', height: '1.5rem'}}/>
             </li>
             <li>
-                <NotificationsIcon className='icon' sx={{width: '2rem', height: '2rem'}}/>
+                <NotificationsIcon className='icon' id={"bell"} sx={{width: '2rem', height: '2rem'}}/>
+                <div className='drop-down'></div>
             </li>
             <li>
-                <PersonIcon className='icon' sx={{width: '2rem', height: '2rem'}}/>
+                <PersonIcon className='icon' id={"person"} sx={{width: '2rem', height: '2rem'}}/>
+                <div className='drop-down'></div>
             </li>
         </ul>
       </div>
