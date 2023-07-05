@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/home.css'
 import { Chart, BarElement, LineElement, ArcElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
-import { Bar, Pie, Line, Doughnut } from 'react-chartjs-2';
+import { Bar, Pie, Line } from 'react-chartjs-2';
 import barChartData from './data/barChartData';
 import pieChartData from './data/pieChartData';
 import lineChartData from './data/lineChartData';
@@ -59,19 +59,19 @@ function Home() {
           <div className='chart'>
             <Bar data={bar1Data} options={bar1Options}/>
           </div>
-          <section>Tickets by Priority</section>
+          <section className='chartTitles'>Tickets by Priority</section>
         </div>
         <div className='two'>
           <div className='chart'>
             <Pie data={pieData} options={pieOptions}/>
           </div>
-          <section>Tickets by Device Type</section>
+          <section className='chartTitles'>Tickets by Device Type</section>
         </div>
         <div className='three'>
           <div className='chart'>
             <Bar data={bar2Data} options={bar2Options} className='bar'/>
           </div>
-          <section>Tickets by Status</section>
+          <section className='chartTitles'>Tickets by Status</section>
         </div>
       </div>
       <div className='four-five'>
@@ -79,13 +79,13 @@ function Home() {
           <div className='chart'>
             <Line data={lineData} options={lineOptions}/>
           </div>
-          <section>Amount of Tickets Over Time</section>
+          <section className='chartTitles'>Amount of Tickets Over Time</section>
         </div>
         <div className='five'>
           <div className='chart'>
             <Bar data={horizontalBarData} options={horizontalBarOptions}/>
           </div>
-          <section>Tickets Completed Each Quarter</section>
+          <section className='chartTitles'>Tickets Completed Each Quarter</section>
         </div>
       </div>
     </div>  

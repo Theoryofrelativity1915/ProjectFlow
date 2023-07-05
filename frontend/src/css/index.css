@@ -1,9 +1,11 @@
 html, body, #root{
   height: 100%;
+  background-color: var(--background-color);
 }
 
+
 :root{
-  --background-color: #fefefe;
+  --background-color: #fafafa;
   --color:  #0a0c31;
   --primary-color: #01acce;
   --accent-color: #13ddd6;

@@ -1,0 +1,65 @@
+.create-page-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: 60%;
+    margin: 4rem;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.create-page-header{
+    display: flex;
+    width: 90%;
+    height: 6rem;
+    align-items: center;
+    padding-left: 3rem;
+    font-size: 2rem;
+    border-radius: 7px;
+    translate: 0 -2rem;
+    background-color: var(--accent-color);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+}
+
+.create-project-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+}
+
+.create-project-grid div section{
+    margin-bottom: 0.5rem;
+}
+
+.create-project-grid div:first-child input{
+    width: 70%;
+}
+
+.create-project-grid div:nth-child(2) textarea{
+    width: 70%;
+    height: 60%;
+}
+
+.create-project-grid div:nth-child(4){
+    display: flex;
+    align-items: center;
+}
+
+.create-project-grid div:nth-child(4) button{
+    justify-content: center;
+    width: 70%;
+    height: 3rem;
+    font-size: 1.25rem;
+    background-color: var(--accent-color);
+    transition: background-color var(--animation-timing);
+}
+
+.create-project-grid div:nth-child(4) button:hover{
+    background-color: var(--light-teal);
+    transition: background-color var(--animation-timing);
+}

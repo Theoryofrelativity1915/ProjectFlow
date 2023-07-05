@@ -17,40 +17,56 @@
     opacity: 40%;
 }
 
-.login-card{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
+
+.login-card-container{
     background-color: white;
+    display: flex;
+    position: absolute;
     align-items: center;
-    padding-top: 2rem;
     width: 25%;
     height: 50%;
+    flex-direction: column;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.login-title{
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+.login-inputs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 2rem 0 1rem 35%;
     
 }
 
-.login-card-content{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-}
-
-.title{
-    font-size: 2rem;
-    padding-bottom: 1rem;
-}
-
-input{
-    width: 70%;
+.login-inputs input{
+    width: 67%;
     border: none;
-    border-bottom: 1px solid black;
-    margin: 2rem 0 0 0;
+    height: 2.5rem;
+    border: 1px solid black;
 }
 
-input:focus{
-    color: red;
+.login-inputs input:nth-child(1){
+    border-bottom: none;
+}
+
+.login-inputs section{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.login-inputs button{
+    text-decoration: underline;
+    font-size: 1rem;    
+}
+
+.login-buttons{
+    width: 50%;
 }
 
 img{
@@ -61,22 +77,27 @@ img{
 button{
     display: flex;
     align-items: center;
-    margin-top: 1.5rem;
-    border: 1px solid black;
+    border: none;
+    outline: none;    
     background: none;
-    height: 40px;
 }
 
 .login-btn{
     display: flex;
     justify-content: center;
-    border-radius: 10px;
-    font-size: 1rem;
+    width: 100%;
+    height: 3rem;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
     background-color: var(--accent-color);
 }
 
 .google-btn{
     background-color: #4285F4;
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
     padding: 5px;
     border: none;
 }
@@ -84,30 +105,47 @@ button{
 .google-btn img{
     background-color: white;
     border-radius: 5px;
-    margin-right: 0.5rem;
+    margin-right: 1.60rem;
 }
 
 .github-btn{
+    position: relative;
     background-color:  #242424;
     color: white;
+    width: 100%;
+    font-size: 1rem;
+    height: 3rem;
     padding: 0;
     border: none;
 }
 
+
 .github-btn img{
-    margin-right: 0.2rem;
-    margin-left: .2rem;
+    margin-right: 0.3rem;
+    margin-left: .3rem;
 }
 
 .github-btn section{
     display: flex;
+    padding-right: 1.75rem;
     background-color: #333333;
+    justify-content: center;
     align-items: center;
-    padding-left: 0.5rem;
     height: 100%;
     width: 100%;
+    
 }
 
 button:hover{
     cursor: pointer;
+}
+
+.password-signup-container section{
+    display: flex;
+    margin: 0.5rem 0 0 0;
+}
+
+.password-signup-container section button{
+    text-decoration: underline;
+    font-size: 1rem;
 }

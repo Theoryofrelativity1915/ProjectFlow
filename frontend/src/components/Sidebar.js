@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import {OpenContext} from './Layout'
 import '../css/sidebar.css';
 import { NavLink } from 'react-router-dom';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -9,52 +10,45 @@ import WorkIcon from '@mui/icons-material/Work';
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
-function Sidebar(props) {
-  const [open, setOpen] = useState(true);
-  //Replace user with signed in authenticated user later
-  const user = "Demo user";
-  const toggleMenu = () => {
-    setOpen(!open);
-    console.log(open);
-  }
+function Sidebar() {
+  const {open, toggleMenu} = useContext(OpenContext)
+
 
   return (
-    <div className='sidebar'>
-        
+    <div className={open ? 'sidebar' : 'sidebar closed'}>
         <aside>
           <ul className={open ? 'sidebar-list' : 'sidebar-list closed'}>
             <div className='open-icon-container' onClick={toggleMenu}>
               <ArrowForwardIosIcon className='open-icon' sx={{width: '1rem', height: '1rem', rotate: '0deg', transition: 'rotate 200ms ease-in-out'}}/>
             </div>
-            <button className={open ? "hamburger-menu active" : "hamburger-menu"} onClick={toggleMenu}>
+            {/* <button className={open ? "hamburger-menu active" : "hamburger-menu"} onClick={toggleMenu}>
               <span className='hamburger-bar'/>
-            </button>
-            <NavLink to = '/' className='link' activeclassName='active'>
+            </button> */}
+            <NavLink to = '/' className='link'>
               <div className='container'>
                 <HomeIcon className='icon'/>
                 <span>Home</span>    
               </div>
             </NavLink>
-            <NavLink to='/projects' className='link' activeclassName='active'>
+            <NavLink to='/projects' className='link'>
               <div className='container'>
                 <WorkIcon className='icon'/>
                 <span>Projects</span>
               </div>
             </NavLink>
-
-            <NavLink to='/tickets' className='link' activeclassName='active'>
+            <NavLink to='/tickets' className='link'>
               <div className='container'>
                 <ConstructionIcon className='icon'/>
                 <span>Tickets</span>
               </div>
             </NavLink>
-            <NavLink to='/assign' className='link' activeclassName='active'>
+            <NavLink to='/assign' className='link'>
               <div className='container'>
                 <PeopleIcon className='icon'/>
                 <span>Assign Projects</span>
               </div>
             </NavLink>
-            <NavLink to='/admin' className='link' activeclassName='active'>
+            <NavLink to='/admin' className='link'>
               <div className='container'>
                 <PeopleIcon className='icon'/>
                 <span>Manage Roles</span>

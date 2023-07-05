@@ -4,7 +4,7 @@
     padding: 4%;
     width: 100%;
     height: 100%;
-    background-color: #fafafa;
+    background-color: var(--background-color);
 }
 
 .one-three{
@@ -57,11 +57,11 @@
     transition: width 300ms ease-in-out;
 }
 
-section{
+.chartTitles{
     display: flex;
+    border-top: 1px solid black;
     justify-content: center;
     align-items: center;
-    background-color: red;
     border-radius: 0 0 10px 10px;
     height: 15%;
 }
@@ -126,3 +126,4 @@ section{
     }
 
 }
+

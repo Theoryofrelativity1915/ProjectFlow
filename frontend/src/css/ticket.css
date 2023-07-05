@@ -1,0 +1,128 @@
+.tickets-page-container{
+    display: flex;
+    width: 100%;
+    height: calc(100% - 3rem);
+    margin: 3rem;
+    justify-content: center;
+    background-color: red;
+}
+.ticket-comments-container{
+    display: flex;
+    min-height: 50%;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+}
+
+.ticket,
+.comments{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-width: 320px;
+    width: 48%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ticket-header,
+.comments-header,
+.ticket-history-header{
+    display: flex;
+    padding-left: 10%;
+    height: 4rem;
+    width: 95%;
+    translate: 0 -1rem;
+    background-color: var(--accent-color);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ticket-header span,
+.comments-header span,
+.ticket-history-header span{
+    display: flex;
+    font-size: 2rem;
+    align-items: center;
+}
+
+.ticket table{
+    margin: 0 1rem 0 1rem;
+    border-collapse: collapse;
+}
+.ticket tr:nth-child(even){
+    border-bottom: 1px solid black;
+}
+
+.ticket th{
+    text-align: start;
+}
+
+.ticket th:nth-child(2){
+    width: 70%;
+    
+}
+
+.comment-input-container{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    left: 2rem;
+    bottom: 1rem;
+    width: 50%;
+}
+
+.comment-input-container input{
+    background-color: var(--background-color);
+    border: 1px solid black;
+    width: 80%;
+    padding: 0;
+    height: 2rem;
+    margin: 0;
+}
+
+.comment-input-container button{
+    background-color: var(--light-teal);
+    height: 2rem;
+    font-size: .7rem;
+    margin: 0;
+}
+
+
+.ticket-history{
+    display: flex;
+    position: relative;
+    height: 45%;
+    justify-content: center;
+    margin-top: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: aqua;
+
+}
+
+@media only screen and (max-width: 1000px){
+    .ticket-comments-container{
+        flex-direction: column;
+        width: min-content;
+    }
+    .ticket{
+        margin-bottom: 3rem;
+    }
+    .ticket-header,
+    .comments-header{
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+    .ticket-header span,
+    .comments-header span{
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .ticket-page-container{
+        margin-top: 3rem;
+
+    }
+}

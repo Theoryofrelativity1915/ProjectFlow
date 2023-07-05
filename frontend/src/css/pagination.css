@@ -1,0 +1,65 @@
+.paginated-table table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+
+    height: min-content;
+}
+
+.paginated-table table tr{
+    border-bottom: 1px solid black;
+}
+
+.paginated-table table th#Email{
+    width: 50%;
+}
+
+.paginated-table table th#Role,
+.paginated-table table th#User{
+    width: 25%;
+}
+
+.paginated-table table td,
+.paginated-table table th{
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.navigation{
+    display: flex;
+    width: 90%;
+    margin: 0.5rem 1rem 0 1rem;
+    justify-content: space-between;
+}
+.pagination{
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem 0 1rem;
+    flex: 1 1 auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.paginated-list{
+    display: flex;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.paginated-list button{
+    font-size: 0.85rem;
+    box-sizing: content-box;
+    border: none;
+    height: min-content
+}
+
+.paginated-list button.active{
+    border-bottom: 3px solid var(--light-teal);
+}
+
+@media only screen and (max-width: 490px){
+    .paginated-table{
+        font-size: .75rem;
+    }
+}

@@ -30,6 +30,11 @@
     background: none;
     border: none;
     margin: 10px;
+    transition: var(--animation-timing)
+}
+
+.hamburger-menu.active{
+    translate: 90vw;
 }
 
 .hamburger-menu::before,
@@ -143,6 +148,8 @@
     transition: width var(--animation-timing);
 }
 
+
+
 .sidebar-list.closed .active .container{
     padding-right: 0.5rem;
     margin-right: 0.7rem;
@@ -190,9 +197,19 @@ li{
     .hamburger-menu{
         display: flex;
         position: relative;
+        justify-content: center;
+        align-items: center;
         z-index: 1;
     }
     .sidebar-list{
         width: 100vw;
+    }
+    .sidebar-list.closed{
+        width: 0px;
+    }
+
+    .sidebar.closed{
+        translate: -75px;
+        transition: var(--animation-timing)
     }
 }
