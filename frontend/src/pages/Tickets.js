@@ -2,16 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import TicketTable from '../components/TicketTable'
+import Table from '../components/Table'
 import useFetch from '../hooks/useFetch'
 import Error from './Error'
 import '../css/projects.css'
 
 function Tickets() {
+  const ticketsApi = 'http://localhost:5000/api/tickets'
+  const ticketTableHeader = ["Title", "Project Name", "Developer", "Priority", "Status", "Date Created", "Management"]
+
   return (
     <div className='projects-page-container'>
       <div className='projects-list-container'>
         <Header title={"Your Tickets"} description={"All of the Tickets that you have access to in the database."}/>
-        <TicketTable/>
+        <Table header={ticketTableHeader} api={ticketsApi}/>
     </div>
   </div>
   )

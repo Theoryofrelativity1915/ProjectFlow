@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+import useFetch from '../hooks/useFetch'
+import { useNavigate } from 'react-router-dom'
 import '../css/create.css'
 
+const api = 'http://localhost:5000/api/users'
 
-{/* name, description, personnel, date */}
 function CreateProject() {
+    const navigate = useNavigate()
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
-    const [devs, setDevs] = useState([])
+    const [devs, setDevs] = useState(null)
+    const { data, loading, error } = useFetch(api)
     const handleUserSelected = (options) => {
       let selectedUsers = []
       for (let i = 0; i < options.length; i++){
@@ -17,12 +21,9 @@ function CreateProject() {
       setDevs(selectedUsers) 
     }
     console.log("Fix submit button in Create Project File")
-    const submit = () =>{
-
-    }
   return (
     <div className='create-page-container'>
-        {/* <div className='create-page-header'>
+        <div className='create-page-header'>
             <section>Create a Project</section>
         </div>
         <div className='create-project-grid'>
@@ -37,13 +38,13 @@ function CreateProject() {
                 <div>
                     <section>Assign Developers to this Project</section>
                     <select multiple='multiple' onChange={(e) => handleUserSelected(e.target)}>
-                        {availableUsers.map((user, key) => <option key={key} id={user}>{user.name}</option>)}
+                        {data?.results.map((user, key) => <option key={key} id={user}>{user.Name}</option>)}
                     </select>
                 </div>
                 <div>
-                    <button onClick={() => submit()}>Submit</button>
+                    <button onClick={() => navigate(-1)}>Submit</button>
                 </div>
-            </div> */}
+            </div>
     </div>
   )
 }

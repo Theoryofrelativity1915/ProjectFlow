@@ -1,16 +1,57 @@
 const express = require('express')
-const bcrypt = require('bcryptjs')
-const path = require('path')
 const app = express()
-const port = 5000
-const projectRouter = require(path.join(__dirname, 'routes', 'projects'))
-const userRouter = require(path.join(__dirname, 'routes', 'users'))
-const ticketRouter = require(path.join(__dirname, 'routes', 'tickets'))
+const passport = require('passport')
+const session = require('express-session')
+const authRouter = require('./routes/auth')
+const projectRouter = require('./routes/projects')
+const ticketRouter = require('./routes/tickets')
+const {postgreStore} = require('./db')
+require('dotenv').config()
+require('./middleware/passport.js')
 
-// app.use(express.static(path.join(__dirname, "..", "frontend", "build")))
-app.use(express.json({ limit: '100mb' }))
-app.use('/api/projects', projectRouter)
-app.use('/api/users', userRouter)
-app.use('/api/tickets', ticketRouter)
+const pool = require('./db.js')
 
-app.listen(port, () => console.log(`listening on port ${port}`))
+// body-parser for retrieving form data
+app.use(express.json()); 
+app.use(express.urlencoded({extended: true}));
+ 
+// initialize passposrt and and session for persistent login sessions
+app.use(session({
+    store: postgreStore,
+    cookie: {
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24
+    },
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+}));
+
+// app.use((req, res, next) => {
+//     for(let i = 0; i < comments.length; i++){
+//         pool.query('SELECT user_id from "user" WHERE user_name=$1', [comments[i].Commenter], (err, result) => {
+//         const query = pool.query('INSERT INTO comment (message, commenter, ticket_id, date) VALUES ($1,$2,$3,$4)',
+//          [comments[i].Message, result.user_id, 'a3bd2ea7-2dd5-4a41-8c1d-61e7ea7de3c1', comments[i]['Date Created']], (err, results) => {
+//             if(err) {
+//               console.log('Error when selecting user on session deserialize', err)
+//               return next()
+//             }
+//           console.log("Done")
+//           })
+//         })
+        
+//     }
+//     next()
+// })
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(authRouter)
+app.use('/projects', projectRouter)
+app.use(ticketRouter)
+
+
+// launch the app
+app.listen(3000);
+console.log("App running at localhost:3000");

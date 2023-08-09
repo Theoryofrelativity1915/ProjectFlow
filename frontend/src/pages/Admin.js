@@ -1,47 +1,38 @@
 import React, { useState } from 'react'
-import Pagination from '../components/Pagination.js'
+import Header from '../components/Header'
+import SelectUsers from '../components/SelectUsers.js'
+import SelectRole from '../components/SelectRole'
+import Table from '../components/Table'
 import '../css/admin.css'
-import '../css/pagination.css'
+
+const api = 'http://localhost:5000/api/users'
 
 function Admin() {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState(null)
   const [role, setRole] = useState(null)
-  const options = ["Project Manager", "Demo Admin", "Developer"]
-  const handleUserSelected = (options) => {
-    let selectedUsers = []
-    for (let i = 0; i < options.length; i++){
-      if(options[i].selected){
-        selectedUsers.push(options[i].value)
-      }
-    }
+  const getSelectedUsers = (selectedUsers) => {
     setUsers(selectedUsers)
   }
+
+  const getSelectedRole = (selectedRole) => {
+    setRole(selectedRole)
+  }
+
   return (
     <div className='admin-page-container'>
-      {/* <div className='user-selection-col'>
+      <div className='user-selection-col'>
         <div>
           <section className='admin-title'>Manage User Roles</section>
-          <section>Select 1 or more Users</section>
-          <select multiple='multiple' onChange={(e) => handleUserSelected(e.target)}>
-            {availableUsers.map((user, key) => <option key={key} id={user}>{user.name}</option>)}
-          </select>
+          <SelectUsers getSelectedUsers={getSelectedUsers} allowMultipleSelect={true}/>
         </div>
-        <div>
-          <section>Select the Role to assign</section>
-          <select onChange={(e) => setRole(e.target.value)}>
-            <option value="" disabled selected>Select Role</option>
-            {options.map((option, key) => <option key={key} id={option}>{option}</option>)}
-          </select>
-          <button className='submit-button' onClick={() => console.log(users, role)}>Submit</button>
-        </div>
+        <SelectRole getSelectedRole={getSelectedRole}/>
+        
       </div>
       <div className='personnel-col'>
-        <div className='personnel-col-header'>
-          <section>Your Personnel</section>
-          <section>All of the users in your database.</section>
-        </div>
-        <Pagination header={["User Name", "Email", "Role"]} array={availableUsers}/>
-      </div> */}
+        <Header title={'Personnel'} description={'All of the users in the database.'}/>
+        <Table header={["Name", "Email", "Role"]} api={api}/>
+
+      </div>
     </div>
   )
 }

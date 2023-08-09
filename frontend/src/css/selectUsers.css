@@ -1,0 +1,27 @@
+.select-users{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.select-users section{
+    padding-bottom: 1rem;
+}
+
+.select-users select{
+    width: 70%;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.select-users div{
+    display: flex;
+    margin: 0!important;
+    padding: 0;
+    flex: 1 1 auto;
+    align-items: center;
+}
+
+.select-users div select{
+    width: 90%;
+}

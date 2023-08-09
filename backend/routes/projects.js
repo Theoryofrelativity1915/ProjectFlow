@@ -1,24 +1,56 @@
 const express = require('express')
 const router = express.Router()
-const {projectsList, projectsData} = require('../temporary/temp')
-const paginatedResults = require('../middleware')
+// const paginatedResults = require('../middleware.js')
+const { pool } = require('../db.js')
 
-router.get('/', paginatedResults(projectsList, "projects"), (req, res) => {
+
+router.get('/', (req, res) => {
     res.setHeader('Content-Type', 'application/json')
-    res.status(200).send({"results" : res.paginatedResults, "totalPages" : res.totalPages})
+    pool.connect((err, client, done) => {
+        if (err){
+            console.error(err.stack)
+        }
+        else{
+            client.query("SELECT * FROM project", (err, result) => {
+                if (err){
+                    console.error(err.stack)
+                }
+                else{
+                    console.log(result.rows)
+                    res.send(result.rows)
+                }
+                client.release()
+            })
+        }
+    })
+    
 })
 
 router.get('/:id', (req, res) => {
     res.setHeader('Content-Type', 'application/json')
     const id = req.params.id
-    res.status(200).send(projectsData[0].tickets)
+    pool.query('Select * FROM project WHERE title LIKE $1', [id], (err, result) => {
+        res.status(200).send(result)
+    })
 })
+
 router.get('/:id/tickets', (req, res) => {
     res.setHeader('Content-Type', 'application/json')
     const id = req.params.id
-    res.status(200).send(projectsData[0].tickets)
+    pool.query('SELECT * FROM ticket WHERE title LIKE $1', [id], (err, result) => {
+        res.status(200).send(result)
+    })
+    // res.status(200).send({"results" : res.paginatedResults, "totalPages": res.totalPages})
 })
 
 
+router.get('/:id/personnel', (req, res) => {
+    res.setHeader('Content-Type', 'application/json')
+    const id = req.params.id
+    pool.query('SELECT user_name, user_email, user_role FROM "user"', (err, result) => {
+        res.status(200).send(result)
+    })
+    // res.status(200).send({"results" : res.paginatedResults, "totalPages": res.totalPages})
+})
 
 module.exports = router

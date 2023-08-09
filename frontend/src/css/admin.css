@@ -21,20 +21,12 @@
     margin-bottom: 2rem;
 }
 
-.user-selection-col div:nth-child(1){
-    border-bottom: 1px solid black;
-    padding-bottom: 2rem;
-}
 
-.user-selection-col select{
-    margin-top: 1rem;
-    width: 40%;
-}
 
 .submit-button{
     justify-content: center;
     width: 40%;
-    height: 35%;
+    height: 5%;
     margin-top: 1rem;
     border-radius: 5px;
     background-color: var(--light-teal);
@@ -49,27 +41,11 @@
 
 .personnel-col{
     display: flex;
+    position: relative;
     flex-direction: column;
     width: 60%;
     background-color: white;
     border-radius: 10px;
-}
-
-.personnel-col-header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;    
-    background-color: var(--accent-color);
-    height: 5rem;
-    padding-left: 2rem;
-    font-size: 2rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 5px;
-}
-
-.personnel-col-header section:nth-child(2){
-    font-size: 1rem;
-    padding-left: 2rem;
 }
 
 @media only screen and (max-width: 829px){

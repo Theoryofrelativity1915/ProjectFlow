@@ -3,26 +3,24 @@ import { Link } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
 import '../css/table.css'
 
-function ProjectTable() {
+function ProjectTable(header, api) {
   const [page, setPage] = useState(1)
   const [limit, setLimit] = useState(10)
   const [search, setSearch] = useState("")
   const pageNumbers = []
-  const api = 'http://localhost:5000/api/projects'.concat("?page=").concat(page).concat("&limit=").concat(limit).concat("&search=").concat(search)
-  const header = ["Project Name", "Description", "Management"]
+  api = api.concat("?page=").concat(page).concat("&limit=").concat(limit).concat("&search=").concat(search)
   const { data, loading, error } = useFetch(api)
   if(data){
       for (let i = 1; i <= data.totalPages; i++) {
         pageNumbers.push(i)
     }
-    console.log(data)
   }
   return (
     <div className='paginated-table-container'>
       <div className='navigation'>
         <section><input placeholder='Search...' onChange={(e) => setSearch(e.target.value)}/></section>
         <section style={{marginLeft: "2px"}}>Show
-          <select defaultValue={"10"} style={{width: "2.5rem", marginLeft: "2px"}} onChange={(e) => {console.log(e.target.value)}}>
+          <select defaultValue={"10"} style={{width: "2.5rem", marginLeft: "2px"}} onChange={(e) => {setLimit(e.target.value)}}>
             <option value={"5"}>5</option>
             <option value={"10"}>10</option>
             <option value={"15"}>15</option>

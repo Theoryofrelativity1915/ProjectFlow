@@ -13,7 +13,11 @@ import Error from './pages/Error'
 import './css/app.css'
 
 
+
+
+
 function App() {
+
   return (
     <Routes>
       {/* Private Routes */}

@@ -1,0 +1,90 @@
+select{
+    background-color: white!important;
+    border: 1px solid black!important;
+}
+
+.assign-page-container{
+    display: flex;
+    width: 100%;
+    margin: 3rem;
+}
+
+.user-selection-col{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    font-size: 1.25rem;
+    margin-right: 2rem;
+}
+
+.user-selection-upper{
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.select-type{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 1rem;
+    flex: 1 1 auto;
+    border-left: 1px solid black;
+}
+
+.select-type > div{
+    display: flex;
+    gap: 15%;
+    justify-content: flex-start;
+}
+
+.select-type div select:nth-child(2){
+    width: 50%;
+}
+
+
+.task-list{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.task-list > select{
+    background-color: white;
+    border: 1px solid black;
+    width: 60%;
+    height: 2rem;
+    margin-top: 2rem;
+}
+
+
+.personnel-col{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 60%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 836px){
+    .assign-page-container{
+        height: min-content;
+        flex-direction: column;
+    }
+    .user-selection-col,
+    .personnel-col{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+}
+
+@media only screen and (max-width: 490px){
+    .admin-page-container{
+        margin: 1rem;
+    }
+
+}
