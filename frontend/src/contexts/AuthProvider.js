@@ -1,10 +1,10 @@
-import { fabClasses } from "@mui/material";
+// import { fabClasses } from "@mui/material";
 import { createContext, useState } from "react";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState(fabClasses);
+    const [auth, setAuth] = useState(false);
 
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>

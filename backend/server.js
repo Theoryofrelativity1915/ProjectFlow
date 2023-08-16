@@ -1,19 +1,25 @@
 const express = require('express')
 const app = express()
+const router = express.Router()
 const passport = require('passport')
 const session = require('express-session')
 const authRouter = require('./routes/auth')
 const projectRouter = require('./routes/projects')
 const ticketRouter = require('./routes/tickets')
 const {postgreStore} = require('./db')
+const path = require('path')
+const cors = require('cors')
+
 require('dotenv').config()
 require('./middleware/passport.js')
 
 const pool = require('./db.js')
 
-// body-parser for retrieving form data
+
+app.use(cors())
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true}));
+
  
 // initialize passposrt and and session for persistent login sessions
 app.use(session({
@@ -44,12 +50,27 @@ app.use(session({
 //     next()
 // })
 
+
+// const isLoggedIn = (req, res, next) => {
+//     console.log('test')
+//     if (req.isAuthenticated()){
+//         return next();
+//     }
+//     else{
+//         return res.redirect('/login')
+//     }
+// }
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 app.use(authRouter)
-app.use('/projects', projectRouter)
-app.use(ticketRouter)
+// console.log(path.join(__dirname, "..", "frontend", "build"))
+// app.use(express.static(path.join(__dirname, "..", "frontend", "build")))
+// app.use('/api/projects', projectRouter)
+// app.use('/api/tickets', ticketRouter)
 
 
 // launch the app

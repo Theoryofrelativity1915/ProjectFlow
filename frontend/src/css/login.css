@@ -54,6 +54,10 @@
     border-bottom: none;
 }
 
+.login-inputs input:nth-child(1):focus{
+    border-bottom: 1px solid black;
+}
+
 .login-inputs section{
     display: flex;
     justify-content: flex-start;
