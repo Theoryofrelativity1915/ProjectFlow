@@ -17,7 +17,7 @@ const Layout = ({children}) => {
                     <NavHeader/>
                     <div className='main'>
                         <Sidebar/>
-                            {children}
+                        {children}
                     </div>
             </OpenContext.Provider>
         </div>

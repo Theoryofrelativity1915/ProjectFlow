@@ -1,46 +1,32 @@
 const express = require('express')
 const router = express.Router()
-// const paginatedResults = require('../middleware.js')
+const paginatedResults = require('../middleware/paginatedResults')
 const { pool } = require('../db.js')
+const { getProjects, getTickets } = require('../utils/utils')
 
 
-router.get('/', (req, res) => {
+router.get('/', getProjects, paginatedResults, (req, res) => {
     res.setHeader('Content-Type', 'application/json')
-    pool.connect((err, client, done) => {
-        if (err){
-            console.error(err.stack)
-        }
-        else{
-            client.query("SELECT * FROM project", (err, result) => {
-                if (err){
-                    console.error(err.stack)
-                }
-                else{
-                    console.log(result.rows)
-                    res.send(result.rows)
-                }
-                client.release()
-            })
-        }
-    })
-    
+    res.status(200).send({"results" : res.paginatedResults, "totalPages" : res.totalPages})
+
 })
 
 router.get('/:id', (req, res) => {
     res.setHeader('Content-Type', 'application/json')
     const id = req.params.id
-    pool.query('Select * FROM project WHERE title LIKE $1', [id], (err, result) => {
-        res.status(200).send(result)
+    pool.query('Select * FROM project WHERE project_id=$1', [id], (err, result) => {
+        res.status(200).send(result.rows[0])
     })
 })
 
-router.get('/:id/tickets', (req, res) => {
+router.get('/:id/tickets', getTickets, paginatedResults, (req, res) => {
+   
     res.setHeader('Content-Type', 'application/json')
-    const id = req.params.id
-    pool.query('SELECT * FROM ticket WHERE title LIKE $1', [id], (err, result) => {
-        res.status(200).send(result)
-    })
-    // res.status(200).send({"results" : res.paginatedResults, "totalPages": res.totalPages})
+    // pool.query('SELECT * FROM ticket WHERE project_id=$1', [id], (err, result) => {
+    //     console.log(result)
+    //     res.status(200).send(result.rows[0])
+    // })
+    res.status(200).send({"results" : res.paginatedResults, "totalPages": res.totalPages})
 })
 
 

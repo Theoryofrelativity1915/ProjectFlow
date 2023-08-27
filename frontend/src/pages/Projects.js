@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom"
 import Table from '../components/Table'
 import Header from '../components/Header.js'
@@ -6,8 +6,9 @@ import '../css/projects.css'
 import '../css/app.css'
 
 function Projects() {
-  const projectsApi = 'http://localhost:5000/api/projects'
-  const projectsTableHeader = ["Project Name", "Description", "Management"]
+  const [ data, setData ] = useState(null)
+  const projectsApi = 'http://localhost:3000/api/projects'
+  const projectsTableHeader = ['title', "description", "Management"]
 
   return (
     <div className='projects-page-container'>

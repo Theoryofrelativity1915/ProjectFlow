@@ -56,9 +56,13 @@ h1{
     outline: 1px solid var(--accent-color);
     color: black;
 }
-
-
-
+.drop-down-open{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: teal;
+    transform: translate(0, calc(100px));
+}
 
 @media only screen and (max-width: 600px){
     .navigation-list li:nth-child(2),

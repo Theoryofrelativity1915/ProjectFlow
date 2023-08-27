@@ -8,27 +8,26 @@ import useFetch from '../hooks/useFetch'
 
 function Project() {
   const projectId = useParams()
-  const api = 'http://localhost:5000/api/projects/'.concat(projectId.id)
+  const api = 'http://localhost:3000/api/projects/'.concat(projectId.id)
   const ticketsApi = api.concat('/tickets')
   const personnelApi = api.concat('/personnel')
-  const ticketsHeader = ["Title", "Submitter", "Developer", "Status", "Date Created", "Management"]
+  const ticketsHeader = ["title", "submitter", "developer", "status", "date", "Management"]
   const personnelHeader = ["Name", "Email", "Role"]
   const {data, loading, error } = useFetch(api)
-
   return (
     <div className='projects'>
       <div className='project-header'>
         <div className='project-header-title'>
-          <span>Details for {data?.name}</span>
+          <span>Details for {data?.title}</span>
         </div>
         <div className='header-information'>
           <div className='project-title-info'>
               <section>Project Name</section>
-              <section>{data?.name}</section>
+              <section>{data?.title}</section>
           </div>
           <div className='project-title-info'>
               <section>Project Description</section>
-              <section>{data?.Description}</section>
+              <section>{data?.description}</section>
           </div>
         </div>
       </div>
@@ -38,7 +37,7 @@ function Project() {
             <h3>Assigned Personnel</h3>
             <p>Current Users on this Project</p>
           </div>
-          <Table header={personnelHeader} api={personnelApi}/>
+          {/* <Table header={personnelHeader} api={personnelApi}/> */}
         </div>
         <div className='information' id='two'>
           <div className='informationHeader'>

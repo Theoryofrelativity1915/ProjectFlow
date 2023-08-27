@@ -10,26 +10,30 @@ const isLoggedIn = (req, res, next) => {
         return next();
     }
     else{
-        res.sendStatus(401);
+        res.status(401).send(false);
     }
 }
 
-router.get("/", (req, res) => {
-    res.send("Hello")
-});
+// router.get("/", (req, res) => {
+//     res.send("Hello")
+// });
 
-router.get('/register', (req, res) => {
-    res.send("<p>Please register!</p><form method='post' action='/register'><input type='text' name='name'/><input type='text' name='email'/><input type='password' name='password'/><button type='submit' value='submit'>Submit</buttom></form>");
-})
+// router.get('/register', (req, res) => {
+//     res.send("<p>Please register!</p><form method='post' action='/register'><input type='text' name='name'/><input type='text' name='email'/><input type='password' name='password'/><button type='submit' value='submit'>Submit</buttom></form>");
+// })
 
 router.post('/register', (req, res) => {
     insertUser(req.body.name, req.body.email, req.body.password)
     res.redirect("/login");
 });
 
-router.get("/login", function (req, res) {
-    res.send("<p>Please login!</p><form method='post' action='/login'><input type='text' name='username'/><input type='password' name='password'/><button type='submit' value='submit'>Submit</buttom></form>");
-});
+// router.get("/login", function (req, res) {
+//     res.send("<p>Please login!</p><form method='post' action='/login'><input type='text' name='username'/><input type='password' name='password'/><button type='submit' value='submit'>Submit</buttom></form>");
+// });
+
+router.get('/authenticated', isLoggedIn, (req, res) => {
+    res.status(200).send(true)
+})
 
 router.post("/login",
     passport.authenticate("local-login"),

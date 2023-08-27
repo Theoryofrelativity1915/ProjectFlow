@@ -1,40 +1,39 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import '../css/login.css'
+import  AuthContext  from '../contexts/AuthProvider'
 
 function LoginForm() {
-    const instance = axios.create({
-        withCredentials: true
-    })
-    function handleSubmit(e){
-      e.preventDefault()
-      const form = e.target
-      const formData = new FormData(form)
-      const formJson = Object.fromEntries(formData.entries())
-      // instance.post('http://localhost:3000/login', {
-      //     username: formJson.username,
-      //     password: formJson.password
-      //   })
-      //   .then(function (response) {
-      //     console.log(response);
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error);
-      //   });
-      fetch('http://localhost:3000/login', {
-          method: 'POST',
-          mode: 'cors',
-          credentials: 'include',
-          body: JSON.stringify({
-            username: formJson.username,
-            password: formJson.password
-          }),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-            'Access-Control-Allow-Origin': true
-          },
+  const {auth, setAuth} = useContext(AuthContext)
+  const navigate = useNavigate()
+  function handleSubmit(e){
+    e.preventDefault()
+    const form = e.target
+    const formData = new FormData(form)
+    const formJson = Object.fromEntries(formData.entries())
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+        body: JSON.stringify({
+          username: formJson.username,
+          password: formJson.password
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'Access-Control-Allow-Origin': true
+        },
+      })
+        .then((response) => {
+          if (response.status == 200){
+            setAuth(true)
+            navigate('/')
+          }
+          else{
+            setAuth(false)
+          }
         })
-           .then((response) => console.log(response))
 
     }
   return (

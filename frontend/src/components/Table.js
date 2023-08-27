@@ -17,6 +17,7 @@ function Table({header, api}) {
         pageNumbers.push(i)
     }
   }
+  console.log(data)
   return (
     <div className='paginated-table-container'>
       <div className='navigation'>
@@ -31,9 +32,9 @@ function Table({header, api}) {
       </div>
       <table className='paginated-table'>
         <tbody>
-          <tr>{header.map((col, key) => (<th key={key}>{col}</th>))}</tr>
+          <tr>{header.map((col, key) => (<th key={key}>{col.charAt(0).toUpperCase() + col.slice(1)}</th>))}</tr>
           {data ? data.results.map((object) => (<tr key={object.id} id={object.id}>{header.map((col, key) => (col != "Management") ? (<td key={key}>{object[col]}</td>) : 
-          <Buttons link1={'/assign'} link2={location === '/projects' ? location.concat(`/${object.id}`) : `/tickets/${object.id}`}/>
+          <Buttons link1={'/assign'} link2={location === '/projects' ? location.concat(`/${object.project_id}`) : `/tickets/${object.ticket_id}`}/>
           )}
           </tr>)) : <tr key={'loading-row'}><td key={'Loading'}>Loading</td></tr>}
         </tbody>

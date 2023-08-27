@@ -67,6 +67,7 @@ app.use(passport.session());
 
 
 app.use(authRouter)
+app.use('/api/projects', projectRouter)
 // console.log(path.join(__dirname, "..", "frontend", "build"))
 // app.use(express.static(path.join(__dirname, "..", "frontend", "build")))
 // app.use('/api/projects', projectRouter)

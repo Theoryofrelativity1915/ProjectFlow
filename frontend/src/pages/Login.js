@@ -14,7 +14,7 @@ function Login() {
             <div className='login-card-container'>
               <section className='login-title'>ProjectFlow Login</section>
               <LoginForm/>
-              <div className='login-buttons'>
+              {/* <div className='login-buttons'>
                 <button className='google-btn'>
                   <img src={google}/>
                   Login with Google
@@ -25,10 +25,10 @@ function Login() {
                     Login with Github
                   </section>
                 </button>
-              </div>
+              </div> */}
               <div className='password-signup-container'>
-                <section>Forgot your <button className='password-button'>Password?</button></section>
-                <section>Create an account by <button className='signup-button'>Signing up</button></section>
+                <section>Forgot your <a className='password-button'>Password?</a></section>
+                <section>Create an account by <a className='signup-button'>Signing up</a></section>
               </div>
             </div>
     </div>
