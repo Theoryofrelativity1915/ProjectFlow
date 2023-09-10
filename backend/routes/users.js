@@ -19,15 +19,18 @@ router.get('/all-users', async (req, res) => {
     }
 })
 
-router.post('/create', async (req, res) => {
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        const newUser = await pool.query('INSERT INTO users (user_name, user_email, user_password) VALUES ($1,$2,$3) RETURNING *', 
-            [req.body.name, req.body.email, hashedPassword])
-        res.json({users:newUser.rows[0]})
-    } catch (error) {
-        res.status(500).json({ error: error.message })
-    }
+router.post('/register', console.log("register hit"), async (req, res) => {
+    console.log(req.body.email)
+    // try {
+    //     const userExists = await pool.query('SELECT user_name FROM "user" WHERE user_email = $1', [req.body.email])
+    //     const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    //     const newUser = await pool.query('INSERT INTO users (user_name, user_email, user_password) VALUES ($1,$2,$3) RETURNING *', 
+    //         [req.body.name, req.body.email, hashedPassword])
+    //     res.json({users:newUser.rows[0]})
+    // } catch (error) {
+    //     res.status(500).json({ error: error.message })
+    // }
+    res.status(200)
 })
 
 

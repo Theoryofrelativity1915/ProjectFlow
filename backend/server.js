@@ -75,5 +75,5 @@ app.use('/api/projects', projectRouter)
 
 
 // launch the app
-app.listen(3000);
-console.log("App running at localhost:3000");
+app.listen(3030);
+console.log("App running at localhost:3030");

@@ -10,7 +10,7 @@ function Login() {
 
   return (
     <div className='login'>
-        <div className='bg-image'></div>
+        <div className='bg-image'/>
             <div className='login-card-container'>
               <section className='login-title'>ProjectFlow Login</section>
               <LoginForm/>
@@ -27,8 +27,8 @@ function Login() {
                 </button>
               </div> */}
               <div className='password-signup-container'>
-                <section>Forgot your <a className='password-button'>Password?</a></section>
-                <section>Create an account by <a className='signup-button'>Signing up</a></section>
+                <section><span style={{'whiteSpace': 'pre-wrap'}}>Forgot your </span><a className='password-button' href='/password-reset'>Password?</a></section>
+                <section><span style={{'whiteSpace': 'pre-wrap'}}>Create an account by </span><a className='signup-button' href='/register'>Signing up</a></section>
               </div>
             </div>
     </div>

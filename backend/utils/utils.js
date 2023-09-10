@@ -7,6 +7,21 @@ const hashPass = async (password) => {
     return hash
 }
 
+const userExists = async (email) => {
+    console.log("Checking if user exists")
+    try{
+        const user = await pool.query('SELECT * FROM "user" WHERE user_email = $1', [email])        
+        if (user.rows > 0){
+            return true
+        }
+        else{
+            return false
+        }
+    } catch(err){
+        console.log(err)
+    }
+}
+
 const insertUser = async (name, email, password) => {
     try {
         const user = await pool.query('SELECT * FROM "user" WHERE user_email = $1', [email])        
@@ -46,7 +61,6 @@ function getProjects(req, res, next) {
 
 
 function getTickets(req, res, next) {
-    console.log('test')
     const id = req.params.id
     pool.connect((err, client) => {
         if (err){
@@ -69,4 +83,4 @@ function getTickets(req, res, next) {
         }
     })
 }
-module.exports = { insertUser, getProjects, getTickets }
+module.exports = { insertUser, userExists, getProjects, getTickets }

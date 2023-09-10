@@ -7,7 +7,7 @@ import '../css/ticket.css'
 import TicketTable from '../components/TicketTable.js'
 import Pagination from '../components/Pagination.js'
 
-const api = 'http://localhost:5000/api/tickets/'
+const api = 'http://localhost:3030/api/tickets/'
 
 function Ticket() {
   const {id} = useParams()

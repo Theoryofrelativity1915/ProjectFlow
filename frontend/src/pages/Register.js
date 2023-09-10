@@ -1,8 +1,15 @@
 import React from 'react'
+import RegisterForm from '../components/RegisterForm'
 
 function Register() {
   return (
-    <div>Register</div>
+    <div className='login'>
+    <div className='bg-image'/>
+        <div className='login-card-container'>
+          <section className='login-title'>Create an Account</section>
+          <RegisterForm/>
+        </div>
+</div>
   )
 }
 

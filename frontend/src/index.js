@@ -5,6 +5,7 @@ import App from './App'
 import { AuthProvider } from './contexts/AuthProvider'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login'
+import Logout from './pages/Logout'
 import Register from './pages/Register'
 
 

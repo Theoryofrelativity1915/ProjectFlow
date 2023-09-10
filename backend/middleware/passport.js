@@ -4,9 +4,9 @@ const {pool} = require('../db.js')
 const bcrypt = require('bcrypt')
 
 const verifyCallback = (username, password, done) => {
-    pool.query('SELECT user_id, user_name, user_password, user_role FROM "user" WHERE user_name=$1', [username], (err, result) => {
+    pool.query('SELECT user_id, user_name, user_password, user_role FROM "user" WHERE user_email=$1', [username], (err, result) => {
       if(err) {
-        console.log('Error when selecting user on login', err)
+        console.log('Error when selecting user email on login', err)
         return done(err)
       }
       if(result.rows.length === 0){

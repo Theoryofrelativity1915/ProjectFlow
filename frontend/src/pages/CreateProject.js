@@ -3,7 +3,7 @@ import useFetch from '../hooks/useFetch'
 import { useNavigate } from 'react-router-dom'
 import '../css/create.css'
 
-const api = 'http://localhost:5000/api/users'
+const api = 'http://localhost:3030/api/users'
 
 function CreateProject() {
     const navigate = useNavigate()

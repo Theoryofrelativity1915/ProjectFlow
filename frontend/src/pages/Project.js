@@ -8,7 +8,7 @@ import useFetch from '../hooks/useFetch'
 
 function Project() {
   const projectId = useParams()
-  const api = 'http://localhost:3000/api/projects/'.concat(projectId.id)
+  const api = 'http://localhost:3030/api/projects/'.concat(projectId.id)
   const ticketsApi = api.concat('/tickets')
   const personnelApi = api.concat('/personnel')
   const ticketsHeader = ["title", "submitter", "developer", "status", "date", "Management"]

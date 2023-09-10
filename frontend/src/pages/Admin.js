@@ -5,7 +5,7 @@ import SelectRole from '../components/SelectRole'
 import Table from '../components/Table'
 import '../css/admin.css'
 
-const api = 'http://localhost:5000/api/users'
+const api = 'http://localhost:3030/api/users'
 
 function Admin() {
   const [users, setUsers] = useState(null)

@@ -8,7 +8,7 @@ import Error from './Error'
 import '../css/projects.css'
 
 function Tickets() {
-  const ticketsApi = 'http://localhost:5000/api/tickets'
+  const ticketsApi = 'http://localhost:3030/api/tickets'
   const ticketTableHeader = ["Title", "Project Name", "Developer", "Priority", "Status", "Date Created", "Management"]
 
   return (

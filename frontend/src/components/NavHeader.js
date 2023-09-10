@@ -19,14 +19,8 @@ function NavHeader() {
         <h1>Issue Tracker</h1>
         <ul className={open ? 'navigation-list closed' : 'navigation-list'}>
             <li className={open ? 'search-bar closed' : 'search-bar'}>
-                <input placeholder='Search...'/>
-                <SearchIcon className='icon' sx={{width: '1.5rem', height: '1.5rem'}}/>
-            </li>
-            <li>
-                <NotificationsIcon className='icon' id={"bell"} sx={{width: '2rem', height: '2rem'}} onClick={() => setNotificationModalOpen(!notificationModalOpen)}/>
-                <div className={notificationModalOpen ? 'drop-down-open' : 'drop-down-closed'}>
-                    
-                </div>
+                {/* <input placeholder='Search...'/> */}
+                {/* <SearchIcon className='icon' sx={{width: '1.5rem', height: '1.5rem'}}/> */}
             </li>
             <li>
                 <PersonIcon className='icon' id={"person"} sx={{width: '2rem', height: '2rem'}} onClick={() => setUserModalOpen(!userModalOpen)}/>

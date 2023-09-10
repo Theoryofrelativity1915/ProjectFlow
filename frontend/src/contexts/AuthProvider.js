@@ -4,7 +4,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(true);
-    fetch('http://localhost:3000/authenticated', {
+    fetch('http://localhost:3030/authenticated', {
         method: 'GET',
         mode: 'cors',
         credentials: 'include',

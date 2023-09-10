@@ -186,6 +186,10 @@ li{
     padding-bottom: 1rem;
 }
 
+.sidebar-list a:last-child{
+    display: none;
+}
+
 @media only screen and (min-width: 600px){
     li{
         display: none;
@@ -214,4 +218,24 @@ li{
         translate: -75px;
         transition: var(--animation-timing)
     }
+    .sidebar-list .container{
+        height: 3rem;
+    }
+
+    .sidebar-list .container span{
+        font-size: 1.5rem;
+        margin-left: 1.5rem;
+        padding: 0;
+    }
+
+    .sidebar-list .container svg{
+        height: 2rem;
+        width: 2rem;
+        transform: translate(0px, 1px);
+    }
+
+    .sidebar-list a:last-child{
+        display: flex;
+    }
+
 }
