@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
-// import { paginatedResults } from '../middleware.js'
+const paginatedResults = require('../middleware/paginatedResults')
+const { getTickets } = require('../utils/utils')
 
-router.get('/', (req, res) => {
+router.get('/', getTickets, paginatedResults, (req, res) => {
     res.setHeader('Content-Type', 'application/json')
-    res.status(200)
+    res.status(200).send({"results" : res.paginatedResults, "totalPages" : res.totalPages})
 })
 
 router.get('/:id', (req, res) => {

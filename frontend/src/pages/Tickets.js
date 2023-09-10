@@ -9,8 +9,7 @@ import '../css/projects.css'
 
 function Tickets() {
   const ticketsApi = 'http://localhost:3030/api/tickets'
-  const ticketTableHeader = ["Title", "Project Name", "Developer", "Priority", "Status", "Date Created", "Management"]
-
+  const ticketTableHeader = ["title", "Project Name", "developer", "priority", "date", "Management"]
   return (
     <div className='projects-page-container'>
       <div className='projects-list-container'>

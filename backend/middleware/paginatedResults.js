@@ -1,5 +1,4 @@
 function paginatedResults(req, res, next){
-        console.log("Paginated results function hit!")
         const models = res.models
         const type = res.type
         const page = parseInt(req.query.page) || 1
@@ -14,15 +13,17 @@ function paginatedResults(req, res, next){
         if (search){
             search = search.toLowerCase()
             if(type === "users"){
-                searchedModels = models.filter((model) => model.Name.toLowerCase().includes(search) || model.Email.toLowerCase().includes(search) || model.Role.toLowerCase().includes(search))
+                searchedModels = models.filter((model) => model.name.toLowerCase().includes(search) || model.email.toLowerCase().includes(search) || model.role.toLowerCase().includes(search))
             }
             else if (type === "projects"){
                 searchedModels = models.filter((model) => model.title.toLowerCase().includes(search) || model.description.toLowerCase().includes(search))
             }
             else if (type === "tickets"){
-                searchedModels = models.filter((model) => model.title.toLowerCase().includes(search) || model.project_id.includes(search)
-                || model.Submitter.toLowerCase().includes(search) || model.Developer.toLowerCase().includes(search)
-                || model.Priority.toLowerCase().includes(search) || model.Status.includes(search) || model["Date Created"].includes(search))
+                console.log(models[0].status)
+                searchedModels = models.filter((model) => model.title.toLowerCase().includes(search) || model["Project Name"].toLowerCase().includes(search) || model.priority.toLowerCase().includes(search)
+                || model.developer.toLowerCase().includes(search) || model.date.toISOString().slice(0, 10).includes(search))
+                
+                console.log(searchedModels)
             }
             else if (type === "comments"){
                 searchedModels = models.filter((model) => model.Commenter.toLowerCase().includes(search) || model.Message.toLowerCase().includes(search)

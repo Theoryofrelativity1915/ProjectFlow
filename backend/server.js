@@ -6,6 +6,7 @@ const session = require('express-session')
 const authRouter = require('./routes/auth')
 const projectRouter = require('./routes/projects')
 const ticketRouter = require('./routes/tickets')
+const userRouter = require('./routes/users')
 const {postgreStore} = require('./db')
 const path = require('path')
 const cors = require('cors')
@@ -68,10 +69,12 @@ app.use(passport.session());
 
 app.use(authRouter)
 app.use('/api/projects', projectRouter)
+app.use('/api/tickets', ticketRouter)
+app.use('/api/users', userRouter)
+
 // console.log(path.join(__dirname, "..", "frontend", "build"))
 // app.use(express.static(path.join(__dirname, "..", "frontend", "build")))
 // app.use('/api/projects', projectRouter)
-// app.use('/api/tickets', ticketRouter)
 
 
 // launch the app

@@ -17,7 +17,7 @@ function Table({header, api}) {
         pageNumbers.push(i)
     }
   }
-  console.log(data)
+  console.log(data?.results[0])
   return (
     <div className='paginated-table-container'>
       <div className='navigation'>
@@ -31,10 +31,15 @@ function Table({header, api}) {
         </section>
       </div>
       <table className='paginated-table'>
-        <tbody>
-          <tr>{header.map((col, key) => (<th key={key}>{col.charAt(0).toUpperCase() + col.slice(1)}</th>))}</tr>
-          {data ? data.results.map((object) => (<tr key={object.id} id={object.id}>{header.map((col, key) => (col != "Management") ? (<td key={key}>{object[col]}</td>) : 
-          <Buttons link1={'/assign'} link2={location === '/projects' ? location.concat(`/${object.project_id}`) : `/tickets/${object.ticket_id}`}/>
+        <tbody key={'body'}>
+          <tr key={'header'}>{header.map((col, key) => (<th key={key}>{col.charAt(0).toUpperCase() + col.slice(1)}</th>))}</tr>
+          {data ? data.results.map((object) => (<tr key={object.id} id={object.id}>{header.map((col, key) => 
+          (col != "Management") ? 
+            (col != 'status') ? 
+              (col == 'date') ? (<td key={key}>{object[col].toString().slice(0, 10)}</td>) 
+              : (<td key={key}>{object[col]}</td>) 
+            : (<td key={key}>{object[col] ? 'Open' : 'Closed'}</td>) 
+          : <Buttons key={key} link1={'/assign'} link2={location === '/projects' ? location.concat(`/${object.project_id}`) : `/tickets/${object.ticket_id}`}/>
           )}
           </tr>)) : <tr key={'loading-row'}><td key={'Loading'}>Loading</td></tr>}
         </tbody>

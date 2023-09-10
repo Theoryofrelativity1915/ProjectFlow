@@ -4,6 +4,7 @@ import Table from '../components/Table'
 import { useParams } from 'react-router-dom'
 import '../css/project.css'
 import useFetch from '../hooks/useFetch'
+import Header from '../components/Header'
 
 
 function Project() {
@@ -12,14 +13,12 @@ function Project() {
   const ticketsApi = api.concat('/tickets')
   const personnelApi = api.concat('/personnel')
   const ticketsHeader = ["title", "submitter", "developer", "status", "date", "Management"]
-  const personnelHeader = ["Name", "Email", "Role"]
+  const personnelHeader = ["name", "email", "role"]
   const {data, loading, error } = useFetch(api)
   return (
     <div className='projects'>
       <div className='project-header'>
-        <div className='project-header-title'>
-          <span>Details for {data?.title}</span>
-        </div>
+        <Header title={data?.title}/>
         <div className='header-information'>
           <div className='project-title-info'>
               <section>Project Name</section>
@@ -37,7 +36,7 @@ function Project() {
             <h3>Assigned Personnel</h3>
             <p>Current Users on this Project</p>
           </div>
-          {/* <Table header={personnelHeader} api={personnelApi}/> */}
+          <Table header={personnelHeader} api={personnelApi}/>
         </div>
         <div className='information' id='two'>
           <div className='informationHeader'>
