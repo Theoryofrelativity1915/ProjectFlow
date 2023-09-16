@@ -9,7 +9,6 @@ function SelectRole({getSelectedRole}) {
                 <option value="" disabled selected>Select Role</option>
                 {options.map((option, key) => <option key={key} id={option}>{option}</option>)}
             </select>
-      
     </div>
   )
 }

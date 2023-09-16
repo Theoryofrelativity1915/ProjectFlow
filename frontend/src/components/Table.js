@@ -17,7 +17,6 @@ function Table({header, api}) {
         pageNumbers.push(i)
     }
   }
-  console.log(data?.results[0])
   return (
     <div className='paginated-table-container'>
       <div className='navigation'>

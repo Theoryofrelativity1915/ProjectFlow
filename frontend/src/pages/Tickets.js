@@ -12,6 +12,7 @@ function Tickets() {
   const ticketTableHeader = ["title", "Project Name", "developer", "priority", "date", "Management"]
   return (
     <div className='projects-page-container'>
+      <Link to={'/tickets/create'} className='create-project-btn'>Create a new Ticket</Link>
       <div className='projects-list-container'>
         <Header title={"Your Tickets"} description={"All of the Tickets that you have access to in the database."}/>
         <Table header={ticketTableHeader} api={ticketsApi}/>

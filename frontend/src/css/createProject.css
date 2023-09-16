@@ -63,3 +63,57 @@
     background-color: var(--light-teal);
     transition: background-color var(--animation-timing);
 }
+
+.create-project-submit{
+    position: relative;
+}
+
+.create-project-submit .project-submitted-alert,
+.create-project-submit .project-error-alert{
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    color: var(--primary-color);
+    transition: opacity 0.5ms ease-in-out;
+}
+
+.create-project-submit .project-error-alert{
+    color: red;
+}
+.project-error-alert:hover,
+.project-submitted-alert:hover{
+    cursor: default;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.project-error-alert.alerting {
+    opacity: 0;
+    animation: fade 1.5s linear;
+}
+
+
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
+}
+
+.project-submitted-alert.alerting{
+    opacity: 100;
+}
+
+@media only screen and (max-width: 1000px){
+    .create-page-container{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .create-page-container{
+        width: 100%;
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+}

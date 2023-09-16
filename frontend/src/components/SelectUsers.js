@@ -24,7 +24,7 @@ function SelectUsers({ getSelectedUsers, allowMultipleSelect }) {
     <section>Select 1 or more Users</section>
     <div>
       <select multiple={allowMultipleSelect ? 'multiple' : ''} onChange={(e) => handleUserSelected(e.target)}>
-        {data?.results.map((user, key) => <option key={key} id={user}>{user.Name}</option>)}
+        {data?.results.map((user, key) => <option key={key} id={user}>{user.name}</option>)}
       </select>
     </div>
   </div>

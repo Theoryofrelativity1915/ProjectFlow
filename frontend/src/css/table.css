@@ -42,9 +42,9 @@
     right: 5rem;
 }
 
-@media only screen and (max-width: 625px){
+@media only screen and (max-width: 650px){
     *{font-size: 0.85rem;}
 }
-@media only screen and (max-width: 380px){
+@media only screen and (max-width: 400px){
     *{font-size: 0.75rem;}
 }

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import Header from '../components/Header'
+import React, { useState, useRef } from 'react'
+import Personnel from '../components/Personnel'
 import SelectUsers from '../components/SelectUsers.js'
 import SelectRole from '../components/SelectRole.js'
-import Table from '../components/Table'
+import useFetch from '../hooks/useFetch'
 import '../css/assign.css'
 
 const projectsApi = 'http://localhost:3030/api/projects'
@@ -14,14 +14,42 @@ function Assign() {
   const [role, setRole] = useState(null)
   const [users, setUsers] = useState(null)
   const [type, setType] = useState("Project")
-  const [task, setTask] = useState(null)
   
+  const [selectedTask, setSelectedTask] = useState(null)
+  const { data: ticketsData, loading: ticketsLoading, error: ticketsError } = useFetch(ticketsApi)
+  const { data: projectsData, loading: projectsLoading, error: projectsError } = useFetch(projectsApi)
+  const projects = useRef([]);
+  const tickets  = useRef([])
+  const [tasks, setTasks] = useState([])
+  
+
+  const handleTaskType = (e) => {
+    setType(e.target.value)
+    if (e.target.value == "Ticket"){
+      setTasks(tickets.current)
+    }
+    else {
+      setTasks(projects.current)
+    }
+  }
   const getSelectedUsers = (selectedUsers) => {
     setUsers(selectedUsers)
   }
   const getSelectedRole = (selectedRole) => {
     setRole(selectedRole)
   }
+
+  if(tasks.length == 0 && projectsData){
+    var projectsArray = []
+    var ticketsArray = []
+    projectsData.results.map(project => projectsArray.push(project.title))
+    projects.current = projectsArray
+    ticketsData.results.map(ticket => ticketsArray.push(ticket.title))
+    tickets.current = ticketsArray
+    console.log(projects)
+    setTasks(projects.current)
+  }
+
   return (
     <div className='assign-page-container'>
       <div className='user-selection-col'>
@@ -34,7 +62,7 @@ function Assign() {
                 <section>Select Task to assign to</section>
               </div>
               <div>
-                <select onChange={(e) => setType(e.target.value)}>
+                <select onChange={(e) => handleTaskType(e)}>
                   <option>
                     Project
                   </option>
@@ -42,16 +70,14 @@ function Assign() {
                     Ticket
                   </option>
                 </select>
-                <select onChange={(e) => setTask(e.target.value)}>
-                  <option>
-                    Example 1
-                  </option>
+                <select onChange={(e) => setSelectedTask(e.target.value)}>
+                  {tasks?.map(task => <option>{task}</option>)}
                 </select>
               </div>
             </div>
           </div>
-{/* 
-        <div>
+
+        {/* <div>
           <section>Select the Role to assign</section>
           <select onChange={(e) => setRole(e.target.value)}>
             <option value="" disabled selected>Select Role</option>
@@ -62,10 +88,7 @@ function Assign() {
         <SelectRole getSelectedRole={getSelectedRole}/>
         <button className='submit-button' onClick={() => console.log("Complete submission on Assign page")}>Submit</button>
       </div>
-      <div className='personnel-col'>
-        <Header title={'Personnel'} description={'All of the users in the database.'}/>
-        <Table header={["Name", "Email", "Role"]} api={userApi}/>
-      </div>
+      <Personnel/>
     </div>
   )
 }

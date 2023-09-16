@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import Header from '../components/Header'
+import Personnel from '../components/Personnel'
 import SelectUsers from '../components/SelectUsers.js'
 import SelectRole from '../components/SelectRole'
-import Table from '../components/Table'
 import '../css/admin.css'
 
-const api = 'http://localhost:3030/api/users'
 
 function Admin() {
   const [users, setUsers] = useState(null)
@@ -26,13 +24,9 @@ function Admin() {
           <SelectUsers getSelectedUsers={getSelectedUsers} allowMultipleSelect={true}/>
         </div>
         <SelectRole getSelectedRole={getSelectedRole}/>
-        
-      </div>
-      <div className='personnel-col'>
-        <Header title={'Personnel'} description={'All of the users in the database.'}/>
-        <Table header={["Name", "Email", "Role"]} api={api}/>
 
       </div>
+      <Personnel/>
     </div>
   )
 }

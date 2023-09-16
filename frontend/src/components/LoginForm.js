@@ -1,13 +1,11 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import '../css/login.css'
 import  AuthContext  from '../contexts/AuthProvider'
 
 function LoginForm() {
   const {auth, setAuth} = useContext(AuthContext)
   const navigate = useNavigate()
-  
   const demoSignIn = () => {
     fetch('http://localhost:3030/login', {
         method: 'POST',
@@ -41,7 +39,7 @@ function LoginForm() {
     const form = e.target
     const formData = new FormData(form)
     const formJson = Object.fromEntries(formData.entries())
-    fetch('http://localhost:3000/login', {
+    fetch('http://localhost:3030/login', {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',

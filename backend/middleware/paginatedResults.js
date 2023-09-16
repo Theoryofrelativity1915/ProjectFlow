@@ -19,7 +19,7 @@ function paginatedResults(req, res, next){
                 searchedModels = models.filter((model) => model.title.toLowerCase().includes(search) || model.description.toLowerCase().includes(search))
             }
             else if (type === "tickets"){
-                console.log(models[0].status)
+                console.log(models)
                 searchedModels = models.filter((model) => model.title.toLowerCase().includes(search) || model["Project Name"].toLowerCase().includes(search) || model.priority.toLowerCase().includes(search)
                 || model.developer.toLowerCase().includes(search) || model.date.toISOString().slice(0, 10).includes(search))
                 

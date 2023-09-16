@@ -120,6 +120,7 @@ function getProjectPersonnel(req, res, next) {
         }
     })
 }
+
 function getPersonnel(req, res, next) {
     pool.connect((err, client) => {
         if (err){
@@ -141,5 +142,31 @@ function getPersonnel(req, res, next) {
         }
     })
 }
+function createProject(req, res, next) {
+    pool.connect((err, client) => {
+        if (err){
+            console.error(err.stack)
+        }
+        else{
+            client.query('INSERT INTO project (title, description) VALUES ($1,$2) RETURNING project_id', [req.body.title, req.body.description], (err, result) => {
+                
+                if (err){
+                    console.error(err.stack)
+                    next()
+                }
+                else{
+                    console.log(result.rows[0].project_id)
+                    // console.log(req.body.users)
+                    for(let i = 0; i < req.body.users.length; i++){
+                        client.query('UPDATE "user" SET project_id = $1 WHERE name LIKE $2', [result.rows[0].project_id, req.body.users[i]], (err, result) => {})
+                    }
+                    
+                    client.release()
+                    return next()
+                }
+            })
+        }
+    })
+}
 
-module.exports = { insertUser, userExists, getProjects, getTickets, getProjectPersonnel, getPersonnel }
+module.exports = { insertUser, userExists, getProjects, getTickets, getProjectPersonnel, getPersonnel, createProject }

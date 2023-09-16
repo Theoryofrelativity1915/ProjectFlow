@@ -33,7 +33,13 @@ router.post('/register', async(req, res) => {
     }
 });
 
+router.options('/authenticated', (req, res) => {
+    console.log('options endpoint hit')
+    next()
+})
+
 router.get('/authenticated', isLoggedIn, (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
     res.status(200).send(true)
 })
 

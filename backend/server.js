@@ -15,9 +15,12 @@ require('dotenv').config()
 require('./middleware/passport.js')
 
 const pool = require('./db.js')
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true
+}
 
-
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true}));
 
@@ -34,33 +37,8 @@ app.use(session({
     saveUninitialized: false,
 }));
 
-// app.use((req, res, next) => {
-//     for(let i = 0; i < comments.length; i++){
-//         pool.query('SELECT user_id from "user" WHERE user_name=$1', [comments[i].Commenter], (err, result) => {
-//         const query = pool.query('INSERT INTO comment (message, commenter, ticket_id, date) VALUES ($1,$2,$3,$4)',
-//          [comments[i].Message, result.user_id, 'a3bd2ea7-2dd5-4a41-8c1d-61e7ea7de3c1', comments[i]['Date Created']], (err, results) => {
-//             if(err) {
-//               console.log('Error when selecting user on session deserialize', err)
-//               return next()
-//             }
-//           console.log("Done")
-//           })
-//         })
-        
-//     }
-//     next()
-// })
 
 
-// const isLoggedIn = (req, res, next) => {
-//     console.log('test')
-//     if (req.isAuthenticated()){
-//         return next();
-//     }
-//     else{
-//         return res.redirect('/login')
-//     }
-// }
 
 
 app.use(passport.initialize());
