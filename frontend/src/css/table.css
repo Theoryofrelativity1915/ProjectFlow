@@ -42,6 +42,17 @@
     right: 5rem;
 }
 
+.no-tickets-link{
+    background-color: var(--light-teal);
+    transition: background-color var(--animation-timing);
+}
+
+.navigation{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
 @media only screen and (max-width: 650px){
     *{font-size: 0.85rem;}
 }

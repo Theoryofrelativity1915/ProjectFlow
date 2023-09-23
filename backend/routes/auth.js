@@ -18,7 +18,6 @@ const isLoggedIn = (req, res, next) => {
 router.post('/register', async(req, res) => {
     try{
         const usernameExists = await userExists(req.body.email)
-        console.log(usernameExists)
         if(!(usernameExists)){
             console.log("creating user")
             insertUser(req.body.username, req.body.email, req.body.password)
@@ -32,11 +31,6 @@ router.post('/register', async(req, res) => {
         console.log(err)
     }
 });
-
-router.options('/authenticated', (req, res) => {
-    console.log('options endpoint hit')
-    next()
-})
 
 router.get('/authenticated', isLoggedIn, (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");

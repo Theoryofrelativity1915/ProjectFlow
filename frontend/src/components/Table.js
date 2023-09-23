@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
 import '../css/table.css'
+import '../css/buttons.css'
 import Buttons from './ManagementButtons'
 
 function Table({header, api}) {
+  const id = useParams().id
   const [page, setPage] = useState(1)
   const [limit, setLimit] = useState(10)
   const [search, setSearch] = useState("")
@@ -22,11 +24,11 @@ function Table({header, api}) {
       <div className='navigation'>
         <section><input placeholder='Search...' onChange={(e) => setSearch(e.target.value)}/></section>
         <section style={{marginLeft: "2px"}}>Show
-          <select defaultValue={"10"} style={{width: "2.5rem", marginLeft: "2px"}} onChange={(e) => {setLimit(e.target.value)}}>
+        <select defaultValue={"10"} style={{width: "2.5rem", marginLeft: "2px"}} onChange={(e) => {setLimit(e.target.value)}}>
             <option value={"5"}>5</option>
             <option value={"10"}>10</option>
             <option value={"15"}>15</option>
-          </select> entries
+        </select> entries
         </section>
       </div>
       <table className='paginated-table'>
@@ -43,6 +45,9 @@ function Table({header, api}) {
           </tr>)) : <tr key={'loading-row'}><td key={'Loading'}>Loading</td></tr>}
         </tbody>
       </table>
+      {data?.results.length == 0 ? header[0] == 'title' ? <Link className='general-button no-tickets-link' to={'/tickets/create'} state={{ "id": id }}>Create a ticket</Link> : 
+        <Link className='general-button no-tickets-link' to={'/assign'}>Assign Personnel to this Project</Link> : <></>}
+
       <ul className='paginated-table-list'>
         {pageNumbers.map(num => (<button key={num} id={num} className={num} onClick={(e) => setPage(e.target.id)}>{num}</button>))}
       </ul>

@@ -16,7 +16,7 @@ function NavHeader() {
         <button className={open ? "hamburger-menu active" : "hamburger-menu"} onClick={toggleMenu}>
               <span className='hamburger-bar'/>
         </button>
-        <h1>Issue Tracker</h1>
+        <h1>ProjectFlow</h1>
         <ul className={open ? 'navigation-list closed' : 'navigation-list'}>
             <li className={open ? 'search-bar closed' : 'search-bar'}>
                 {/* <input placeholder='Search...'/> */}

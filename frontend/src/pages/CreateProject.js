@@ -3,6 +3,7 @@ import useFetch from '../hooks/useFetch'
 import { useNavigate } from 'react-router-dom'
 import '../css/createProject.css'
 import Header from '../components/Header.js';
+import CreateProjectForm from '../components/CreateProjectForm';
 
 const api = 'http://localhost:3030/api/users'
 
@@ -51,35 +52,8 @@ function CreateProject() {
     }
   return (
     <div className='create-page-container'>
-        {/* <div className='create-page-header'>
-            <section>Create a Project</section>
-        </div> */}
         <Header title={`Create a Project`} description={''}/>
-        <div className='create-project-grid'>
-                <div>
-                    <section>Title</section>
-                    <input onChange={e => setTitle(e.target.value)}/>
-                </div>
-                <div>
-                    <section>Description</section>
-                    <textarea onChange={e => setDescription(e.target.value)}/>
-                </div>
-                <div>
-                    <section>Assign Developers to this Project</section>
-                    <select multiple='multiple' onChange={(e) => handleUserSelected(e.target)}>
-                        {data?.results.map((user, key) => <option key={key} id={user}>{user.name}</option>)}
-                    </select>
-                </div>
-                <div className='create-project-submit'>
-                    <button onClick={useHandleSubmit}>Submit</button>
-                    <div className={displaySubmitted ? 'project-submitted-alert alerting' : 'project-submitted-alert'}>
-                      Your project has been created.
-                    </div>
-                    <div className={displayError ? 'project-error-alert alerting' : 'project-error-alert'}>
-                      You must select at least one developer.
-                    </div>
-                </div>
-            </div>
+        <CreateProjectForm/>
     </div>
   )
 }

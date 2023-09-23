@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import Table from '../components/Table'
 import { useParams } from 'react-router-dom'
 import '../css/project.css'
+import '../css/buttons.css'
 import useFetch from '../hooks/useFetch'
 import Header from '../components/Header'
-
+import ConfirmDeleteModal from '../components/ConfirmDeleteModal'
 
 function Project() {
+  const [displayModal, setDisplayModal] = useState(false)
   const projectId = useParams()
   const api = 'http://localhost:3030/api/projects/'.concat(projectId.id)
   const ticketsApi = api.concat('/tickets')
@@ -15,6 +16,11 @@ function Project() {
   const ticketsHeader = ["title", "submitter", "developer", "status", "date", "Management"]
   const personnelHeader = ["name", "email", "role"]
   const {data, loading, error } = useFetch(api)
+  
+  const handleSetDisplayModal = () => {
+    setDisplayModal(false)
+  }
+
   return (
     <div className='projects'>
       <div className='project-header'>
@@ -47,7 +53,9 @@ function Project() {
             <Table header={ticketsHeader} api={ticketsApi}/>
           </div>
         </div>
+        <button className='general-button delete-btn' onClick={() => setDisplayModal(true)}>Delete this Project</button>
       </div>
+      <ConfirmDeleteModal displayModal={displayModal} handleSetDisplayModal={handleSetDisplayModal}/>
     </div>
   )
 }

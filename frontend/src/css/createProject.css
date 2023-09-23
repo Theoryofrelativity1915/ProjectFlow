@@ -1,80 +1,85 @@
 .create-page-container{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 40%;
-    height: 60%;
+    height: 55vh;
     margin: 4rem;
     border-radius: 7px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.create-page-header{
+.create-page-container form{
     display: flex;
-    width: 90%;
-    height: 6rem;
-    align-items: center;
-    padding-left: 3rem;
-    font-size: 2rem;
-    border-radius: 7px;
-    translate: 0 -2rem;
-    background-color: var(--accent-color);
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
-}
-
-.create-project-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    padding: 2rem;
+    flex-direction: row;
+    font-size: 1.5rem;
     width: 100%;
+    padding: 1rem;
     height: 100%;
 }
 
-.create-project-grid div section{
-    margin-bottom: 0.5rem;
-}
-
-.create-project-grid div:first-child input{
-    width: 70%;
-}
-
-.create-project-grid div:nth-child(2) textarea{
-    width: 70%;
-    height: 60%;
-}
-
-.create-project-grid div:nth-child(4){
+.create-page-container form .col{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
 }
 
-.create-project-grid div:nth-child(4) button{
-    justify-content: center;
-    width: 70%;
-    height: 3rem;
-    font-size: 1.25rem;
-    background-color: var(--accent-color);
-    transition: background-color var(--animation-timing);
+.create-page-container form .col:nth-child(1){
+    width: 50%;
+    margin-right: 1rem;
 }
 
-.create-project-grid div:nth-child(4) button:hover{
-    background-color: var(--light-teal);
-    transition: background-color var(--animation-timing);
+.create-page-container form .col input{
+    height: 10%;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.developers-list{
+    flex-grow: 1;
+}
+
+.developers-list select{
+    height: 80%;
+    width: 100%;
+    font-size: 0.85rem;
+}
+
+.create-page-container .col textarea{
+    height: 50%;
 }
 
 .create-project-submit{
+    display: flex;
     position: relative;
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-project-submit button{
+    position: relative;
+    width: 60%;
+    margin: 0;
 }
 
 .create-project-submit .project-submitted-alert,
 .create-project-submit .project-error-alert{
     position: absolute;
     opacity: 0;
-    bottom: 0;
+    font-size: 1rem;
     color: var(--primary-color);
     transition: opacity 0.5ms ease-in-out;
+}
+.create-project-submit .project-error-alert{
+    bottom: -8%;
+}
+.create-project-submit .project-submitted-alert{
+    bottom: -2.5%;
+    font-size: 1.25rem;
 }
 
 .create-project-submit .project-error-alert{

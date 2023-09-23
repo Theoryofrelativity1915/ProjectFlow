@@ -4,7 +4,7 @@ import SelectUsers from '../components/SelectUsers.js'
 import SelectRole from '../components/SelectRole.js'
 import useFetch from '../hooks/useFetch'
 import '../css/assign.css'
-
+import '../css/admin.css'
 const projectsApi = 'http://localhost:3030/api/projects'
 const ticketsApi = 'http://localhost:3030/api/tickets'
 const userApi = 'http://localhost:3030/api/users'

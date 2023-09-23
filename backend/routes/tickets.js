@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const paginatedResults = require('../middleware/paginatedResults')
-const { getTickets } = require('../utils/utils')
+const { getTickets, createTicket } = require('../utils/utils')
 
 router.get('/', getTickets, paginatedResults, (req, res) => {
     res.setHeader('Content-Type', 'application/json')
@@ -18,6 +18,11 @@ router.get('/:id/comments', (req, res) => {
     const id = req.params.id
     res.setHeader('Content-Type', 'application/json')
     res.status(200)
+})
+
+router.post('/create', createTicket, (req, res) => {
+    res.setHeader('Content-Type', 'application/json')
+    res.status(200).send("Good Request")
 })
 
 module.exports = router

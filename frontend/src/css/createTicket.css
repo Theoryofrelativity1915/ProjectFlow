@@ -15,6 +15,11 @@
     font-size: 1.25rem;
 }
 
+.create-ticket .row .project-select select{
+    background-color: red;
+    width: 60%;
+}
+
 .create-ticket .row div{
     width: 50%;
     margin-bottom: 3%;
@@ -24,28 +29,17 @@
     margin-left: 5%;
 }
 
-.create-ticket-submit{
-    display: flex;
-    justify-content: center;
-    margin-right: 25%;
-    margin-left: 50%;
-    margin-top: 2%;
-}
 
-.ticket-submitted-alert,
-.ticket-error-alert{
+.create-ticket .row .ticket-submitted-alert{
     position: absolute;
     opacity: 0;
-    bottom: 0rem;
+    width: 100%;
+    bottom: 15%;
     color: var(--primary-color);
     transition: opacity 0.5ms ease-in-out;
 }
 
-.ticket-error-alert{
-    color: red;
-}
 
-.ticket-error-alert:hover,
 .ticket-submitted-alert:hover{
     cursor: default;
     -webkit-user-drag: none;
@@ -54,22 +48,12 @@
     -webkit-user-select: none;
     -ms-user-select: none;
 }
-.ticket-error-alert.alerting {
-    opacity: 0;
-    animation: fade 1.5s linear;
-}
 
-
-@keyframes fade {
-  0%,100% { opacity: 0 }
-  50% { opacity: 1 }
-}
-
-.ticket-submitted-alert.alerting{
+.create-ticket .row .ticket-submitted-alert.alerting{
     opacity: 100;
 }
 
-.row:last-child button{
+.create-ticket .row:last-child button{
     justify-content: center;
     width: 75%;
     margin-top: 1rem;
@@ -79,11 +63,11 @@
     transition: background-color var(--animation-timing);
 }
 
-.row:last-child button:hover{
+.create-ticket .row:last-child button:hover{
     background-color: var(--light-teal);
     transition: background-color var(--animation-timing);
 }
 
-.row:last-child div:last-child{
+.create-ticket .row:last-child div:last-child{
     position: relative;
 }

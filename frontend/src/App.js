@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Admin from './pages/Admin'
 import Layout from './components/Layout'
 import Projects from './pages/Projects'
 import Project from './pages/Project'
@@ -30,7 +29,6 @@ function App() {
         <Route path='tickets' element={<Layout><Tickets/></Layout>}/>
         <Route path='tickets/create' element={<Layout><CreateTicket/></Layout>}/>
         <Route path='tickets/:id' element={<Layout><Ticket/></Layout>}/>
-        <Route path='admin' element={<Layout><Admin/></Layout>}/>
         <Route path='*' element={<Layout><Error/></Layout>}/>
       </Route>
     </Routes>

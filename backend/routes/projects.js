@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const paginatedResults = require('../middleware/paginatedResults')
 const { pool } = require('../db.js')
-const { getProjects, getTickets, getProjectPersonnel, createProject } = require('../utils/utils')
+const { getProjects, getTickets, getProjectPersonnel, createProject, deleteProject } = require('../utils/utils')
 
 
 router.get('/', getProjects, paginatedResults, (req, res) => {
@@ -32,6 +32,11 @@ router.get('/:id/personnel', getProjectPersonnel, paginatedResults, (req, res) =
 router.post('/create', createProject, (req, res) => {
     res.setHeader('Content-Type', 'application/json')
     res.status(200).send({"results" : res.paginatedResults, "totalPages": res.totalPages})
+})
+
+router.delete('/delete/:id', deleteProject, (req, res) => {
+    res.setHeader('Content-Type', 'application/json')
+    res.status(200).send("Delete Successful")
 })
 
 

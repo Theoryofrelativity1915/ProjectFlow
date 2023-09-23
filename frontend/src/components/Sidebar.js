@@ -46,12 +46,6 @@ function Sidebar() {
                 <span>Assign Projects</span>
               </div>
             </NavLink>
-            <NavLink to='/admin' className='link'>
-              <div className='container'>
-                <PeopleIcon className='icon'/>
-                <span>Manage Roles</span>
-              </div>
-            </NavLink>
             <NavLink to='/login' className='link' onClick={() => logout}>
               <div className='container'>
                 <PersonIcon className='icon'/>

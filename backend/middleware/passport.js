@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 const verifyCallback = (username, password, done) => {
     pool.query('SELECT user_id, name, password, role FROM "user" WHERE email=$1', [username], (err, result) => {
       if(err) {
-        console.log('Error when selecting user email on login', err)
+        console.error(err)
         return done(err)
       }
       if(result.rows.length === 0){
@@ -38,7 +38,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((user, done) => {
     const query = pool.query('SELECT user_id FROM "user" WHERE user_id = $1', [user.user_id], (err, results) => {
       if(err) {
-        console.log('Error when selecting user on session deserialize', err)
+        console.error(err)
         return done(err)
       }
     done(null, user)

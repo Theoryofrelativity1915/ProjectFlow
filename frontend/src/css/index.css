@@ -7,7 +7,7 @@ html, body, #root{
 :root{
   --background-color: #fafafa;
   --color:  #0a0c31;
-  --primary-color: #01acce;
+  --primary-color: #a8f495;
   --accent-color: #13ddd6;
   --hover-icon-color: #1a83ff;
   --font-color: white;
@@ -21,7 +21,8 @@ html, body, #root{
   --light-gold: #fff4eb;
   --blue: #558bf8;
   --teal: #71ebfb;
-  --light-teal: #c6efff;
+  --light-teal: #90f5f8;
+  /* --light-teal: #b1dbff; */
 }
 
 

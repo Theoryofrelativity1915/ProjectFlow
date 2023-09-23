@@ -24,11 +24,11 @@
     justify-content: center;
     align-items: flex-start;
     padding-left: 2rem;
-    width: 95%;
+    width: 98%;
     height: 6rem;
     border-radius: 6px;
     translate: 0 -1rem;
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
     box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
 }
 
