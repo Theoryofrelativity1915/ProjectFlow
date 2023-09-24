@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../css/login.css'
-import  AuthContext  from '../contexts/AuthProvider'
+import '../../css/login.css'
+import  AuthContext  from '../../contexts/AuthProvider'
 
 function LoginForm() {
   const {auth, setAuth} = useContext(AuthContext)

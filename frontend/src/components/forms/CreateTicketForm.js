@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import useFetch from '../hooks/useFetch'
-import '../css/createTicket.css'
-import '../css/buttons.css'
+import useFetch from '../../hooks/useFetch'
+import '../../css/createTicket.css'
+import '../../css/buttons.css'
 
 const userApi = 'http://localhost:3030/api/users'
 const projectApi = 'http://localhost:3030/api/projects'

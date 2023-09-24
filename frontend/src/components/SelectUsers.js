@@ -5,7 +5,7 @@ import '../css/selectUsers.css'
 const userApi = 'http://localhost:3030/api/users'
 
 
-function SelectUsers({ getSelectedUsers, allowMultipleSelect }) {
+function SelectUsers({ getSelectedUsers, allowMultipleSelect, defaultValue }) {
     const { data, loading, error } = useFetch(userApi)
 
     const handleUserSelected = (options) => {
@@ -23,7 +23,7 @@ function SelectUsers({ getSelectedUsers, allowMultipleSelect }) {
     <div className='select-users'>
     <section>Select 1 or more Users</section>
     <div>
-      <select multiple={allowMultipleSelect ? 'multiple' : ''} onChange={(e) => handleUserSelected(e.target)}>
+      <select multiple={allowMultipleSelect ? 'multiple' : ''} onChange={(e) => handleUserSelected(e.target)} name='users' defaultValue={defaultValue}>
         {data?.results.map((user, key) => <option key={key} id={user}>{user.name}</option>)}
       </select>
     </div>

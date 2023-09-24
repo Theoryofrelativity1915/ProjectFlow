@@ -1,26 +1,32 @@
 const express = require('express')
 const router = express.Router()
 const paginatedResults = require('../middleware/paginatedResults')
-const { getTickets, createTicket } = require('../utils/utils')
+const { getTickets, getTicket, getTicketComments, createTicket, addComment } = require('../utils/utils')
 
 router.get('/', getTickets, paginatedResults, (req, res) => {
     res.setHeader('Content-Type', 'application/json')
     res.status(200).send({"results" : res.paginatedResults, "totalPages" : res.totalPages})
 })
 
-router.get('/:id', (req, res) => {
-    const id = req.params.id
+router.get('/:id', getTicket, (req, res) => {
+    console.log('polling')
     res.setHeader('Content-Type', 'application/json')
-    res.status(200).json({tickets: 'Ticket 1'})
+    res.status(200).json(res.ticket)
 })
 
-router.get('/:id/comments', (req, res) => {
-    const id = req.params.id
+router.get('/:id/comments', getTicketComments, paginatedResults, (req, res) => {
+    console.log("Getting comments")
     res.setHeader('Content-Type', 'application/json')
-    res.status(200)
+    res.status(200).json({"results" : res.paginatedResults, "totalPages" : res.totalPages})
 })
 
 router.post('/create', createTicket, (req, res) => {
+    res.setHeader('Content-Type', 'application/json')
+    res.status(200).send("Good Request")
+})
+
+router.post('/:id/comment', addComment, (req, res) => {
+    console.log("adding comment")
     res.setHeader('Content-Type', 'application/json')
     res.status(200).send("Good Request")
 })

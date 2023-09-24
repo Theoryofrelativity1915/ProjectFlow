@@ -3,7 +3,7 @@ import useFetch from '../hooks/useFetch'
 import { useNavigate } from 'react-router-dom'
 import '../css/createProject.css'
 import Header from '../components/Header.js';
-import CreateProjectForm from '../components/CreateProjectForm';
+import CreateProjectForm from '../components/forms/CreateProjectForm';
 
 const api = 'http://localhost:3030/api/users'
 

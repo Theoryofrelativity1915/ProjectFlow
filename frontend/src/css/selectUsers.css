@@ -2,26 +2,44 @@
     display: flex;
     flex-direction: column;
     width: 40%;
-}
-
-.select-users section{
-    padding-bottom: 1rem;
-}
-
-.select-users select{
-    width: 70%;
-    background-color: white;
-    border: 1px solid black;
+    gap: 15%;
+    height: 196px;
 }
 
 .select-users div{
     display: flex;
-    margin: 0!important;
-    padding: 0;
-    flex: 1 1 auto;
-    align-items: center;
+    padding-left: 0%;
+    padding-top: 3px;
 }
 
 .select-users div select{
-    width: 90%;
+    font-size: 1.05rem;
+    width: 80%;
+    min-height:min-content;
+}
+
+@media only screen and (max-width: 600px){
+    .select-users div{
+        width: 90%;
+    }
+    .select-users div select{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .select-users div select option,
+    .user-selection-upper .select-users section{
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .select-users{
+        height: 100%;
+    }
+    .select-users section,
+    .select-users div{
+        padding: 0;
+        margin: 0;
+    }
 }

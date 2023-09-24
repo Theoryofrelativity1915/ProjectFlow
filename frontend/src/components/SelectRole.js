@@ -1,14 +1,14 @@
 import React from 'react'
 
-function SelectRole({getSelectedRole}) {
+function SelectRole({type}) {
     const options = ["Project Manager", "Demo Admin", "Developer"]
   return (
-    <div>
-        <section>Select the Role to assign</section>
-            <select onChange={(e) => getSelectedRole(e.target.value)}>
-                <option value="" disabled selected>Select Role</option>
-                {options.map((option, key) => <option key={key} id={option}>{option}</option>)}
-            </select>
+    <div className='select-role'>
+      <section>Select the Role to assign</section>
+        <select name='role'>
+          <option value="" disabled selected>Select Role</option>
+          {type == 'Project' ? options.map((option, key) => <option key={key} id={option}>{option}</option>) : <option>Roles are not changeable for tickets.</option>}
+      </select>
     </div>
   )
 }

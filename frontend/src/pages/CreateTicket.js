@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Header from '../components/Header'
-import CreateTicketForm from '../components/CreateTicketForm'
+import CreateTicketForm from '../components/forms/CreateTicketForm'
 import '../css/createTicket.css'
 import '../css/buttons.css'
 

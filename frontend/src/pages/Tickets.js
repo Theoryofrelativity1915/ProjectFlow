@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
-import TicketTable from '../components/TicketTable'
 import Table from '../components/Table'
 import useFetch from '../hooks/useFetch'
 import Error from './Error'

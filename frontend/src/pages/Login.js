@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginForm from '../components/LoginForm.js'
+import LoginForm from '../components/forms/LoginForm.js'
 import '../css/login.css'
 import google from '../images/google.png'
 import github from '../images/github.png'
