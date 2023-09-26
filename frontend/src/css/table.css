@@ -54,8 +54,12 @@
 }
 
 @media only screen and (max-width: 650px){
-    *{font-size: 0.85rem;}
+    .paginated-table-container *{
+        font-size: 0.85rem;
+    }
 }
 @media only screen and (max-width: 400px){
-    *{font-size: 0.75rem;}
+    .paginated-table-container *{
+        font-size: 0.75rem;
+    }
 }

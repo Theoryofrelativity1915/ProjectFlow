@@ -396,4 +396,44 @@ function deleteProject(req, res, next) {
     })
 }
 
-module.exports = { insertUser, userExists, getProjects, getTickets, getTicket, getTicketComments, createTicket, addComment, getProjectPersonnel, getPersonnel, assignPersonnel, createProject, deleteProject }
+
+function resetPassword(req, res, next){
+    pool.connect((err, client) => {
+        if(err){
+            console.error(err.stack)
+        }
+        else{
+            client.query('UPDATE "user" SET password = $1 WHERE email = $2', [password, email], (err, result) => {
+                if(err){
+                    console.error(err.stack)
+                }
+                else{
+                    return next()
+                }
+            })
+        }
+        client.release()
+    })
+}
+
+function checkUser(req, res, next){
+    console.log('checking')
+    pool.connect((err, client) => {
+        if(err){
+            console.error(err.stack)
+        }
+        else{
+            client.query('SELECT user_id, password FROM "user" WHERE email = $1', [req.body.email], (err, result) => {
+                if(err){
+                    console.error(err.stack)
+                }
+                else{
+                    return next(result.rows)
+                }
+            })
+        }
+        client.release()
+    })
+}
+
+module.exports = { insertUser, userExists, getProjects, getTickets, getTicket, getTicketComments, createTicket, addComment, getProjectPersonnel, getPersonnel, assignPersonnel, createProject, deleteProject, resetPassword, checkUser }

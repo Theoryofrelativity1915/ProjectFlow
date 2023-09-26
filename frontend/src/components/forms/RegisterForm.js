@@ -10,7 +10,7 @@ function RegisterForm() {
     const [password, setPassword] = useState(null);
     const [confirmPassword, setConfirmPassword] = useState(null);
     const [emailExists, setEmailExists] = useState(false)
-
+    const navigate = useNavigate()
     const passwordsMatchCheck = () => {
         if(password == confirmPassword){
             setPasswordsMatch(true)
@@ -22,7 +22,7 @@ function RegisterForm() {
     useEffect(() => {
         passwordsMatchCheck()
     })
-    const navigate = useNavigate()
+    
     const handleInputChange = (e) => {
         const {id , value} = e.target;
         if(id === "firstName"){
@@ -52,8 +52,6 @@ function RegisterForm() {
                 password: e.target[3].value
             }
             const json = JSON.stringify(obj)
-            console.log(json)
-            console.log("object = ", obj)
             fetch('http://localhost:3030/register', {
                 method: 'POST',
                 mode: 'cors',
@@ -102,7 +100,6 @@ function RegisterForm() {
             <button type="submit" onSubmit ={ev =>{ev.preventDefault()}}>Register</button>
         </div>
     </form>
-    
 </div>  
   )
 }
