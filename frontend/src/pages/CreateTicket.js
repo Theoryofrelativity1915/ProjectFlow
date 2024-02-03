@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { React } from 'react'
+import { useLocation } from 'react-router-dom'
 import Header from '../components/Header'
 import CreateTicketForm from '../components/forms/CreateTicketForm'
 import '../css/createTicket.css'
@@ -10,18 +10,18 @@ function CreateTicket() {
   const { state } = useLocation()
   var id
 
-  if(state && state.id){
+  if (state && state.id) {
     id = state.id
   }
-  else{
+  else {
     id = null
   }
 
 
   return (
     <div className='create-ticket'>
-        <Header title={'Create a Ticket'}/>
-        <CreateTicketForm id={id}/>
+      <Header title={'Create a Ticket'} />
+      <CreateTicketForm id={id} />
     </div>
   )
 }
