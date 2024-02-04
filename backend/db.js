@@ -7,11 +7,11 @@ const { Pool } = require('pg')
 
 // 2nd: prepare configuration stuff for creating of a Connection Pool to PostgreSQL
 const poolConfigOpts = {
-    "host": "localhost",
-    "port": "5432",
-    "user": "postgres",
-    "password": "postgres",
-    "database": "projectflow",
+    user: 'postgres',
+    password: '62qxz>c9;?iX_HT',
+    host: 'database-3.cocylczu8hfx.us-east-1.rds.amazonaws.com',
+    port: 5432, // default Postgres port
+    database: 'projectflow',
     "max": 20,
     "connectionTimeoutMillis": 0,
     "idleTimeoutMillis": 0
