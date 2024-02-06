@@ -286,9 +286,11 @@ function getProjectPersonnel(req, res, next) {
 function getPersonnel(req, res, next) {
     pool.connect((err, client) => {
         if (err){
+		console.log(err)
             console.error(err.stack)
         }
         else{
+		console.log("getting users")
             client.query('SELECT name, email, role, project_id, user_id FROM "user"', (err, result) => {
                 client.release()
                 if (err){

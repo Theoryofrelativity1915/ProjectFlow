@@ -7,6 +7,7 @@ const path = require('path')
 
 // route middleware to ensure user is logged in
 const isLoggedIn = (req, res, next) => {
+	console.log("checking if logged in?")
     if (req.isAuthenticated()){
         return next();
     }
@@ -47,7 +48,8 @@ router.post('/reset/:id/token', resetPassword, (req, res) => {
 
 
 router.get('/authenticated', isLoggedIn, (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+	console.log("authenticating")
+    //res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
     res.status(200).send(true)
 })
 

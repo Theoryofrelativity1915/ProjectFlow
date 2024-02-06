@@ -5,6 +5,7 @@ const { getPersonnel, assignPersonnel } = require('../utils/utils')
 const router = express.Router()
 
 router.get('/', getPersonnel, paginatedResults, (req, res) => {
+	console.log(req)
     res.setHeader('Content-Type', 'application/json')
     res.status(200).send({"results" : res.paginatedResults, "totalPages": res.totalPages})
 })

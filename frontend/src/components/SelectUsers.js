@@ -7,6 +7,7 @@ const userApi = 'http://52.3.221.82:3030/api/users'
 
 function SelectUsers({ getSelectedUsers, allowMultipleSelect, defaultValue }) {
     const { data, loading, error } = useFetch(userApi)
+	console.log(data, loading, error)
 
     const handleUserSelected = (options) => {
         let selectedUsers = []

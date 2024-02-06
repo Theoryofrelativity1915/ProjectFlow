@@ -13,15 +13,35 @@ require('dotenv').config()
 require('./middleware/passport.js')
 
 var corsOptions = {
-    origin: 'http://localhost:3000',
+	origin: 'http://52.3.221.82:3000',
     credentials: true
 }
 
+
 app.use(cors(corsOptions))
-app.use(express.json());
+//app.options('', function (req, res) {
+//	console.log(req)
+//  res.setHeader("Access-Control-Allow-Origin", 'http://52.3.221.82:3000');
+//  res.setHeader('Access-Control-Allow-Methods', '*');
+//  res.setHeader("Access-Control-Allow-Headers", "*");
+  //res.end();
+//});
+
+//app.use('', function (req, res) {
+//  res.setHeader("Access-Control-Allow-Origin", 'http://52.3.221.82:3000');
+//  res.setHeader('Access-Control-Allow-Methods', '*');
+//  res.setHeader("Access-Control-Allow-Headers", "*");
+  //res.end();
+//});
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://52.3.221.82:3000");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+app.use(express.json()); 
 app.use(express.urlencoded({extended: true}));
 
-
+ 
 // initialize passposrt and and session for persistent login sessions
 app.use(session({
     store: postgreStore,
@@ -37,7 +57,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 app.use(authRouter)
 app.use('/api/projects', projectRouter)
