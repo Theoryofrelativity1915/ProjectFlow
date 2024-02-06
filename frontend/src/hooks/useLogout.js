@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 function useLogout() {
     const navigate = useNavigate()
-    fetch('http://localhost:3030/logout', {
+    fetch('http://3.238.3.43:3030/logout', {
         method: 'GET',
         mode: 'cors',
         credentials: 'include',

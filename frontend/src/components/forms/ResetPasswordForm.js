@@ -32,7 +32,7 @@ function ResetPasswordForm() {
             const json = JSON.stringify(obj)
             console.log(json)
             console.log("object = ", obj)
-            fetch('http://localhost:3030/register', {
+            fetch('http://3.238.3.43:3030/register', {
                 method: 'POST',
                 mode: 'cors',
                 credentials: 'include',

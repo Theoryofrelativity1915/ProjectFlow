@@ -7,7 +7,7 @@ import Error from './Error'
 import '../css/projects.css'
 
 function Tickets() {
-  const ticketsApi = 'http://localhost:3030/api/tickets'
+  const ticketsApi = 'http://3.238.3.43:3030/api/tickets'
   const ticketTableHeader = ["title", "Project Name", "developer", "priority", "date", "Management"]
   return (
     <div className='projects-page-container'>

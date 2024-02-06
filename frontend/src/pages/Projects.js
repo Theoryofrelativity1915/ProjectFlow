@@ -7,7 +7,7 @@ import '../css/app.css'
 
 function Projects() {
   const [ data, setData ] = useState(null)
-  const projectsApi = 'http://localhost:3030/api/projects'
+  const projectsApi = 'http://3.238.3.43:3030/api/projects'
   const projectsTableHeader = ['title', "description", "Management"]
 
   return (

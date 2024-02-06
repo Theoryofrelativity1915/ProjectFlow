@@ -18,10 +18,10 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions))
-app.use(express.json()); 
+app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
- 
+
 // initialize passposrt and and session for persistent login sessions
 app.use(session({
     store: postgreStore,

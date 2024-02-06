@@ -5,7 +5,7 @@ import '../css/createProject.css'
 import Header from '../components/Header.js';
 import CreateProjectForm from '../components/forms/CreateProjectForm';
 
-const api = 'http://localhost:3030/api/users'
+const api = 'http://3.238.3.43:3030/api/users'
 
 function CreateProject() {
     const navigate = useNavigate()
@@ -28,7 +28,7 @@ function CreateProject() {
       if(devs != null && devs.length > 0){
         console.log(devs)
         setDisplaySubmitted(true)
-        fetch('http://localhost:3030/api/projects/create', {
+        fetch('http://3.238.3.43:3030/api/projects/create', {
           method: 'POST',
           mode: 'cors',
           credentials: 'include',

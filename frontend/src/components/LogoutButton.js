@@ -5,7 +5,7 @@ function LogoutButton() {
     const navigate = useNavigate();
     const logout = () => {
         console.log("logout clicked")
-        fetch('http://localhost:3000/api/logout', {
+        fetch('http://3.238.3.43:3000/api/logout', {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',

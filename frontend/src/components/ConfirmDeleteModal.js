@@ -5,7 +5,7 @@ function ConfirmDeleteModal({displayModal, handleSetDisplayModal}) {
     const navigate = useNavigate()
     const id = useParams()
     const handleDeleteProject = () => {
-        fetch('http://localhost:3030/api/projects/delete/'.concat(id.id), {
+        fetch('http://3.238.3.43:3030/api/projects/delete/'.concat(id.id), {
           method: 'DELETE',
           mode: 'cors',
           credentials: 'include',

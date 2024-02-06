@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import Table from './Table'
 
-const api = 'http://localhost:3030/api/users'
+const api = 'http://3.238.3.43:3030/api/users'
 
 function Personnel() {
   return (

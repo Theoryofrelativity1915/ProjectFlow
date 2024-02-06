@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useFetch from '../../hooks/useFetch'
 import { useNavigate } from 'react-router-dom'
 
-const api = 'http://localhost:3030/api/users'
+const api = 'http://3.238.3.43:3030/api/users'
 
 function CreateProjectForm() {
   const navigate = useNavigate()
@@ -30,7 +30,7 @@ function CreateProjectForm() {
       if(devs != null && devs.length > 0){
         console.log("Submitting")
         setDisplaySubmitted(true)
-        fetch('http://localhost:3030/api/projects/create', {
+        fetch('http://3.238.3.43:3030/api/projects/create', {
             method: 'POST',
             mode: 'cors',
             credentials: 'include',
