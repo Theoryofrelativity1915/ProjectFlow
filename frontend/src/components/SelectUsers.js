@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useFetch from '../hooks/useFetch'
 import '../css/selectUsers.css'
 
-const userApi = 'http://3.238.3.43:3030/api/users'
+const userApi = 'http://52.3.221.82:3030/api/users'
 
 
 function SelectUsers({ getSelectedUsers, allowMultipleSelect, defaultValue }) {

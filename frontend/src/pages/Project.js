@@ -10,7 +10,7 @@ import ConfirmDeleteModal from '../components/ConfirmDeleteModal'
 function Project() {
   const [displayModal, setDisplayModal] = useState(false)
   const projectId = useParams()
-  const api = 'http://3.238.3.43:3030/api/projects/'.concat(projectId.id)
+  const api = 'http://52.3.221.82:3030/api/projects/'.concat(projectId.id)
   const ticketsApi = api.concat('/tickets')
   const personnelApi = api.concat('/personnel')
   const ticketsHeader = ["title", "submitter", "developer", "status", "date", "Management"]

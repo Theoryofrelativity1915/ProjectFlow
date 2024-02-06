@@ -4,8 +4,8 @@ import useFetch from '../../hooks/useFetch'
 import '../../css/createTicket.css'
 import '../../css/buttons.css'
 
-const userApi = 'http://3.238.3.43:3030/api/users'
-const projectApi = 'http://3.238.3.43:3030/api/projects'
+const userApi = 'http://52.3.221.82:3030/api/users'
+const projectApi = 'http://52.3.221.82:3030/api/projects'
 
 
 function CreateTicketForm({id}) {
@@ -21,7 +21,7 @@ function CreateTicketForm({id}) {
         const formJson = Object.fromEntries(formData.entries())
         setDisplaySubmitted(true)
         console.log(dev)
-        fetch('http://3.238.3.43:3030/api/tickets/create', {
+        fetch('http://52.3.221.82:3030/api/tickets/create', {
             method: 'POST',
             mode: 'cors',
             credentials: 'include',

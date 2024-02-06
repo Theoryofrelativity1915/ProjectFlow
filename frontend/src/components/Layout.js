@@ -2,7 +2,7 @@ import { useState, createContext } from 'react'
 import NavHeader from "./NavHeader"
 import Sidebar from "./Sidebar"
 export const OpenContext = createContext(false)
-const userApi = 'http://3.238.3.43:3030/api/users'
+const userApi = 'http://52.3.221.82:3030/api/users'
 
 
 const Layout = ({children}) => {

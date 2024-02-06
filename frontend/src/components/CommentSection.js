@@ -9,7 +9,7 @@ function CommentSection() {
     const form = e.target
     const formData = new FormData(form)
     const formJson = Object.fromEntries(formData.entries())
-    fetch('http://3.238.3.43:3030/api/tickets/'.concat(id.id).concat('/comment'), {
+    fetch('http://52.3.221.82:3030/api/tickets/'.concat(id.id).concat('/comment'), {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',

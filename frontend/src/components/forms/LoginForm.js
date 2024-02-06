@@ -7,7 +7,7 @@ function LoginForm() {
   const {auth, setAuth} = useContext(AuthContext)
   const navigate = useNavigate()
   const demoSignIn = () => {
-    fetch('http://3.238.3.43:3030/login', {
+    fetch('http://52.3.221.82:3030/login', {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
@@ -39,7 +39,7 @@ function LoginForm() {
     const form = e.target
     const formData = new FormData(form)
     const formJson = Object.fromEntries(formData.entries())
-    fetch('http://3.238.3.43:3030/login', {
+    fetch('http://52.3.221.82:3030/login', {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',

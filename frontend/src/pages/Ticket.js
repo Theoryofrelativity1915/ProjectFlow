@@ -8,7 +8,7 @@ import Table from '../components/Table.js';
 import CommentSection from '../components/CommentSection'
 import '../css/ticket.css'
 
-const api = 'http://3.238.3.43:3030/api/tickets/'
+const api = 'http://52.3.221.82:3030/api/tickets/'
 
 function Ticket() {
   const [update, setUpdate] = useState(false)
@@ -20,7 +20,7 @@ function Ticket() {
     const form = e.target
     const formData = new FormData(form)
     const formJson = Object.fromEntries(formData.entries())
-    fetch('http://3.238.3.43:3030/api/tickets/'.concat(data?.ticket_id).concat('/comment'), {
+    fetch('http://52.3.221.82:3030/api/tickets/'.concat(data?.ticket_id).concat('/comment'), {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',

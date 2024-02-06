@@ -10,7 +10,7 @@ function ForgotPassword() {
         const formData = new FormData(form)
         const formJson = Object.fromEntries(formData.entries())
         console.log('fetching')
-        fetch('http://3.238.3.43:3030/forgot', {
+        fetch('http://52.3.221.82:3030/forgot', {
                 method: 'POST',
                 mode: 'cors',
                 credentials: 'include',

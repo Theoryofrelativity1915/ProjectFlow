@@ -4,9 +4,9 @@ import SelectUsers from '../SelectUsers.js'
 import SelectRole from '../SelectRole.js'
 import '../../css/assign.css'
 
-const projectsApi = 'http://3.238.3.43:3030/api/projects'
-const ticketsApi = 'http://3.238.3.43:3030/api/tickets'
-const userApi = 'http://3.238.3.43:3030/api/users'
+const projectsApi = 'http://52.3.221.82:3030/api/projects'
+const ticketsApi = 'http://52.3.221.82:3030/api/tickets'
+const userApi = 'http://52.3.221.82:3030/api/users'
 
 function AssignPersonnelForm() {
     const [users, setUsers] = useState([])
@@ -47,7 +47,7 @@ function AssignPersonnelForm() {
         const form = e.target
         const formData = new FormData(form)
         const formJson = Object.fromEntries(formData.entries())
-        fetch('http://3.238.3.43:3030/api/users/assign', {
+        fetch('http://52.3.221.82:3030/api/users/assign', {
             method: 'PUT',
             mode: 'cors',
             credentials: 'include',

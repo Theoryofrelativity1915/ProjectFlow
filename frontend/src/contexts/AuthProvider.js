@@ -4,7 +4,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(true);
-    fetch('http://3.238.3.43:3030/authenticated', {
+    fetch('http://52.3.221.82:3030/authenticated', {
         method: 'GET',
         mode: 'cors',
         credentials: 'include',
